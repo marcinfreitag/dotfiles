@@ -11,7 +11,7 @@ Check out the [Quick Start](https://www.chezmoi.io/quick-start/) page.
 With a single command:
 
 ```sh
-sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply marcin-freitag
+sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin -- init --apply git@github.com:marcin-freitag/dotfiles.git
 ```
 
 ### Update
