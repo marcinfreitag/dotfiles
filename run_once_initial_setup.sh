@@ -16,7 +16,7 @@ echo "Installing non-free codecs"
 sudo dnf -y group upgrade --with-optional --allowerasing Multimedia
 
 echo "Installing software packages"
-sudo dnf -y install celluloid clamav dconf-editor flatseal geary gimp gnome-shell-extension-caffeine gnome-extensions-app htop inkscape lynis neofetch neovim pass pass-otp syncthing tldr zbar https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm brave-browser
+sudo dnf -y install celluloid clamav dconf-editor flatseal geary gimp gnome-shell-extension-caffeine gnome-extensions-app htop inkscape lynis neofetch mpv neovim pass pass-otp syncthing tldr zbar https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm brave-browser
 
 echo "Installing language support for rpms"
 sudo dnf -y install langpacks-de langpacks-fr langpacks-nl langpacks-pl
