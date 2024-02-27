@@ -37,5 +37,8 @@ xdg-settings set default-web-browser brave-browser.desktop
 echo "Setting tap to click"
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 
+echo "Seting compose key to CapsLock"
+gsettings set org.gnome.desktop.input-sources xkb-options "['compose:caps']"
+
 echo "Setting power button to shut down"
 gsettings set org.gnome.settings-daemon.plugins.power power-button-action interactive
