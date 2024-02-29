@@ -8,11 +8,8 @@ sudo dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-rel
 sudo dnf -y config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
 sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
-#echo "Installing non-free codecs"
-#sudo dnf -y group upgrade --with-optional --allowerasing Multimedia
-
 echo "Upgrading system"
-sudo dnf -y clean all && sudo dnf -y upgrade --refresh; flatpak update
+sudo dnf -y clean all && sudo dnf -y group upgrade --with-optional --allowerasing Multimedia && sudo dnf -y upgrade --refresh flatpak update
 
 echo "Installing software packages"
 sudo dnf -y install celluloid clamav dconf-editor flatseal geary gimp gnome-shell-extension-caffeine gnome-shell-extension-no-overview gnome-extensions-app htop inkscape langpacks-de langpacks-fr langpacks-nl langpacks-pl lynis neofetch mpv neovim pass pass-otp syncthing tldr zbar https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm brave-browser
