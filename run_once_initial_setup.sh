@@ -32,4 +32,4 @@ echo "Setting default browser"
 xdg-settings set default-web-browser brave-browser.desktop
 
 echo "Loading dconf settings"
-cat provisioning/dconf-settings.ini | dconf load /
+cat ~/.local/share/chezmoi/provisioning/dconf-settings.ini | dconf load /
