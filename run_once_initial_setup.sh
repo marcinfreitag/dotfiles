@@ -24,6 +24,9 @@ sudo dnf -y install langpacks-de langpacks-fr langpacks-nl langpacks-pl
 echo "Installing language support for flatpaks"
 sudo flatpak config --set languages "en;de;pl;fr;nl"
 
+echo "Running update again, just to make shure"
+sudo dnf -y update; flatpak update
+
 echo "Enabling gpg-agent"
 systemctl --user enable --now gpg-agent.socket
 systemctl --user enable --now gpg-agent-ssh.socket
