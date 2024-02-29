@@ -5,7 +5,7 @@ sudo dnf -y remove baobab gnome-abrt gnome-logs gnome-maps gnome-tour gnome-weat
 sudo dnf -y autoremove
 
 echo "Updating system"
-sudo dnf -y update; flatpak update
+sudo dnf -y clean all && sudo dnf -y upgrade --refresh; flatpak update
 
 echo "Adding package repos"
 sudo dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
