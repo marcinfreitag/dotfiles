@@ -8,12 +8,17 @@ Check out the [Quick Start](https://www.chezmoi.io/quick-start/) page.
 
 ### Install chezmoi and the dotfiles on any new machine
 
-With a single command:
+With a single command (public):
+
+```sh
+sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin -- init --apply MarcinFreitag
+```
+
+or (private):
 
 ```sh
 sh -c "$(curl -fsLS get.chezmoi.io)" -- -b $HOME/.local/bin -- init --apply git@github.com:MarcinFreitag/dotfiles.git
 ```
-
 ### Update
 
 On any machine, you can pull and apply the latest changes from your repo with:
