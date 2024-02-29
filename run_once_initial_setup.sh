@@ -28,17 +28,8 @@ echo "Enabling gpg-agent"
 systemctl --user enable --now gpg-agent.socket
 systemctl --user enable --now gpg-agent-ssh.socket
 
-echo "Setting text-scaling"
-gsettings set org.gnome.desktop.interface text-scaling-factor 1.48
-
 echo "Setting default browser"
 xdg-settings set default-web-browser brave-browser.desktop
 
-echo "Setting tap to click"
-gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
-
-echo "Seting compose key to CapsLock"
-gsettings set org.gnome.desktop.input-sources xkb-options "['compose:caps']"
-
-echo "Setting power button to shut down"
-gsettings set org.gnome.settings-daemon.plugins.power power-button-action interactive
+echo "Loading dconf settings"
+cat provisioning/dconf-settings.ini | dconf load /
