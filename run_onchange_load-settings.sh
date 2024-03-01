@@ -1,10 +1,11 @@
 #!/bin/bash
 
-echo "Upgrading system"
-sudo dnf -y clean all && sudo dnf -y group upgrade --with-optional --allowerasing Multimedia && sudo dnf -y upgrade --refresh
-~/.local/bin/update-fedora.sh -y
+echo "Enabling gpg-agent"
+systemctl --user enable --now gpg-agent.socket
+systemctl --user enable --now gpg-agent-ssh.socket
 
-echo "Installing software packages"
-sudo dnf -y install age celluloid clamav dconf-editor flatseal geary gimp gnome-shell-extension-caffeine gnome-shell-extension-no-overview gnome-extensions-app htop inkscape langpacks-de langpacks-fr langpacks-nl langpacks-pl lynis neofetch mpv neovim pass pass-otp syncthing tldr zbar teamviewer  brave-browser
-sudo dnf -y install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+echo "Setting default browser"
+xdg-settings set default-web-browser brave-browser.desktop
 
+echo "Loading dconf settings"
+cat ~/.local/share/chezmoi/provisioning/dconf-settings.ini | dconf load /
