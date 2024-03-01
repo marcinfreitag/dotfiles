@@ -1,6 +1,8 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $name:= promptStringOnce . "name" "Full user name" -}}
+{{- $ws_hostname:= promptStringOnce . "ws_hostname" "Workstation hostname" -}}
 
 [data]
     email = {{ $email | quote }}
     name = {{ $name | quote }}
+    ws_hostname = {{ $ws_hostname | quote }}
