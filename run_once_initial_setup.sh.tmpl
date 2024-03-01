@@ -15,7 +15,7 @@ if [ ! -f /etc/yum.repos.d/brave-browser.repo ]; then
 	sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 fi
 if [ ! -f /etc/yum.repos.d/teamviewer.repo ]; then
-	sudo dnf -y config-manager --add-repo .local/share/chezmoi/provisioning/teamviewer.repo
+	sudo dnf -y config-manager --add-repo {{ joinPath .chezmoi.sourceDir "/provisioning/teamviewer.repo" | quote }}
 	sudo rpm --import https://linux.teamviewer.com/pubkey/currentkey.asc
 fi
 

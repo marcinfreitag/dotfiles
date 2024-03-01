@@ -8,4 +8,5 @@ echo "Setting default browser"
 xdg-settings set default-web-browser brave-browser.desktop
 
 echo "Loading dconf settings"
-cat ~/.local/share/chezmoi/provisioning/dconf-settings.ini | dconf load /
+# .config/dconf-settings.ini hash: {{ include "dot_config/dconf-settings.ini" | sha256sum }}
+dconf load / < {{ joinPath .chezmoi.sourceDir "dot_config/dconf-settings.ini" | quote }}
