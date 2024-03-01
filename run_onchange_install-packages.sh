@@ -11,3 +11,17 @@ sudo dnf -y install https://downloads.sourceforge.net/project/mscorefonts2/rpms/
 echo "Installing language support for flatpaks"
 sudo flatpak config --set languages "en;de;pl;fr;nl"
 
+# install alienfx
+pc_make=$(sudo dmidecode -s system-product-name)
+
+if [[ $pc_make == *'Alienware '* ]]; then
+	echo "Installing alienfx-gtk"
+	sudo dnf -y install cairo-devel python3-future python3-pyusb gobject-introspection gtk3-devel
+	mkdir ~/.local/src
+	pushd ~/.local/src
+	git clone https://github.com/trackmastersteve/alienfx.git
+	pushd alienfx
+	sudo python3 setup.py install && sudo python3 setup.py install_data
+	popd; popd
+fi
+
