@@ -1,7 +1,9 @@
 #!/bin/bash
 
 echo "Setting up hostname"
-sudo hostnamectl hostname {{ .ws_hostname }}
+if [[ "$(hostnamectl hostname)" != {{ .ws_hostname  | quote }} ]]; then
+	sudo hostnamectl hostname {{ .ws_hostname }}
+fi
 
 echo "Removing unneeded software packages"
 sudo dnf -y remove baobab gnome-abrt gnome-logs gnome-maps gnome-tour gnome-weather mediawriter totem && sudo dnf -y autoremove
