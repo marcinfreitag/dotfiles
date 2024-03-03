@@ -57,7 +57,7 @@ case $stage in
 		echo "NVIDIA detected, performing setup"
 		sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 		sudo dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-		sudo dnf -y upgrade --refresh
+		~/.local/bin/update-fedora.sh
 		create_autostart_entry 2
 
 		echo "Check the setup result and reboot"
