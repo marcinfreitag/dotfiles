@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Upgrading system"
-sudo dnf -y clean all && sudo dnf -y group upgrade --with-optional --allowerasing Multimedia && sudo dnf -y upgrade --refresh
+sudo dnf -y clean all && sudo dnf -y group upgrade --with-optional --allowerasing Multimedia
 ~/.local/bin/update-fedora.sh -y
 
 echo "Installing software packages"
