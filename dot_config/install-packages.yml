@@ -1,0 +1,13 @@
+---
+- name: install flatpaks from flathub
+  hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: installing flatpak list
+      community.general.flatpak:
+        name:
+          - com.github.tchx84.Flatseal
+          - org.gnome.World.PikaBackup
+          - org.nickvision.tagger
+        state: present

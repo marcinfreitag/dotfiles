@@ -25,3 +25,4 @@ if [[ $pc_make == *'Alienware '* ]]; then
 	popd; popd
 fi
 
+ansible-playbook ~/.config/install-packages.yml
