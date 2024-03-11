@@ -10,19 +10,19 @@
       ansible.builtin.set_fact:
         remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
 
-  - name: Uninstall unneeded packages
-    ansible.builtin.dnf:
-      name:
-        - baobab
-        - gnome-abrt
-        - gnome-logs
-        - gnome-maps
-        - gnome-tour
-        - gnome-weather
-        - mediawriter
-        - totem
-      state: absent
-      autoremove: yes
+    - name: Uninstall unneeded packages
+      ansible.builtin.dnf:
+        name:
+          - baobab
+          - gnome-abrt
+          - gnome-logs
+          - gnome-maps
+          - gnome-tour
+          - gnome-weather
+          - mediawriter
+          - totem
+        state: absent
+        autoremove: yes
 
     - name: Install MS Core Fonts
       ansible.builtin.dnf:
@@ -31,9 +31,9 @@
 
     - name: Upgrade the 'Multimedia' package group
       ansible.builtin.dnf:
-      name: '@Multimedia'
-      state: latest
-      allowerasing: true
+        name: '@Multimedia'
+        state: latest
+        allowerasing: true
 
     - name: Upgrade all packages
       ansible.builtin.dnf:
