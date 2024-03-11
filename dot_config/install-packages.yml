@@ -24,6 +24,35 @@
         state: absent
         autoremove: true
 
+    - name: Add Brave Browser Repo
+      ansible.builtin.yum_repository:
+        name: brave-browser
+        description: Brave Browser
+        baseurl: https://brave-browser-rpm-release.s3.brave.com/x86_64/
+        gpgkey: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+        gpgcheck: true
+        enabled: true
+
+    - name: Import Brave Browser GPG Key
+      ansible.builtin.rpm_key:
+        key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+        state: present
+
+    - name: Add TeamViewer Repo
+      ansible.builtin.yum_repository:
+        name: TeamViewer - $basearch
+        description: TeamViewer
+        baseurl: https://linux.teamviewer.com/yum/stable/main/binary-$basearch/
+        gpgkey: https://linux.teamviewer.com/pubkey/currentkey.asc
+        gpgcheck: true
+        repo_gpgcheck: true
+        enabled: true
+
+    - name: Import TeamViewer GPG Key
+      ansible.builtin.rpm_key:
+        key: https://linux.teamviewer.com/pubkey/currentkey.asc
+        state: present
+
     - name: Install MS Core Fonts
       ansible.builtin.dnf:
         name: 'https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm'
