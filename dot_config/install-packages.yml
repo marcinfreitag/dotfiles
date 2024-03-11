@@ -1,6 +1,7 @@
 ---
 - name: install flatpaks from flathub
   hosts: localhost
+  connection: local
   gather_facts: no
 
   tasks:
