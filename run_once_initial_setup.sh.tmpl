@@ -24,3 +24,5 @@ if [ ! -f /etc/yum.repos.d/teamviewer.repo ]; then
 	sudo rpm --import https://linux.teamviewer.com/pubkey/currentkey.asc
 fi
 
+echo "Installing ansible"
+sudo dnf -y install ansible
