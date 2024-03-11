@@ -40,8 +40,8 @@
 
     - name: Add TeamViewer Repo
       ansible.builtin.yum_repository:
-        name: TeamViewer - $basearch
-        description: TeamViewer
+        name: teamviewer
+        description: TeamViewer - $basearch
         baseurl: https://linux.teamviewer.com/yum/stable/main/binary-$basearch/
         gpgkey: https://linux.teamviewer.com/pubkey/currentkey.asc
         gpgcheck: true
