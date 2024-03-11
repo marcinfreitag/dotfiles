@@ -1,15 +1,52 @@
 ---
-- name: install flatpaks from flathub
+- name: install software
   hosts: localhost
+  become: true
   connection: local
-  gather_facts: no
+  gather_facts: true
 
   tasks:
-    - name: installing flatpak list
+    - name: Get my user
+      ansible.builtin.set_fact:
+        remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
+
+    - name: install flatpak apps
       community.general.flatpak:
         name:
           - com.github.tchx84.Flatseal
           - org.gnome.World.PikaBackup
           - org.nickvision.tagger
         state: present
-        method: user
+
+    - name: Install packages
+      ansible.builtin.dnf:
+        name:
+          - age
+          - ansible
+          - celluloid
+          - clamav
+          - dconf-editor
+          - geary
+          - gimp
+          - gnome-shell-extension-caffeine
+          - gnome-shell-extension-no-overview
+          - gnome-extensions-app
+          - htop
+          - inkscape
+          - langpacks-de
+          - langpacks-fr
+          - langpacks-nl
+          - langpacks-pl
+          - lynis
+          - neofetch
+          - mpv
+          - neovim
+          - pass
+          - pass-otp
+          - syncthing
+          - tldr
+          - zbar
+          - teamviewer
+          - brave-browser
+        state: present
+

@@ -5,7 +5,6 @@ sudo dnf -y clean all && sudo dnf -y group upgrade --with-optional --allowerasin
 ~/.local/bin/update-fedora.sh -y
 
 echo "Installing software packages"
-sudo dnf -y install age celluloid clamav dconf-editor flatseal geary gimp gnome-shell-extension-caffeine gnome-shell-extension-no-overview gnome-extensions-app htop inkscape langpacks-de langpacks-fr langpacks-nl langpacks-pl lynis neofetch mpv neovim pass pass-otp syncthing tldr zbar teamviewer  brave-browser
 sudo dnf -y install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 
 echo "Installing language support for flatpaks"
@@ -25,4 +24,4 @@ if [[ $pc_make == *'Alienware '* ]]; then
 	popd; popd
 fi
 
-ansible-playbook ~/.config/install-packages.yml
+ansible-playbook ~/.config/install-packages.yml  --ask-become-pass
