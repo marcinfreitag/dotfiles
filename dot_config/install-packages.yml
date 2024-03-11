@@ -11,3 +11,4 @@
           - org.gnome.World.PikaBackup
           - org.nickvision.tagger
         state: present
+        method: user
