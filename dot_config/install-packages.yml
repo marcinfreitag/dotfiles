@@ -22,7 +22,7 @@
           - mediawriter
           - totem
         state: absent
-        autoremove: yes
+        autoremove: true
 
     - name: Install MS Core Fonts
       ansible.builtin.dnf:
