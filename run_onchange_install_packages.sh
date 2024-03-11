@@ -1,12 +1,5 @@
 #!/bin/bash
 
-echo "Upgrading system"
-sudo dnf -y clean all && sudo dnf -y group upgrade --with-optional --allowerasing Multimedia
-~/.local/bin/update-fedora.sh -y
-
-echo "Installing software packages"
-sudo dnf -y install https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
-
 echo "Installing language support for flatpaks"
 sudo flatpak config --set languages "en;de;pl;fr;nl"
 

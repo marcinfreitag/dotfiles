@@ -1,24 +1,46 @@
 ---
-- name: install software
+- name: Install software
   hosts: localhost
   become: true
   connection: local
   gather_facts: true
 
   tasks:
-    - name: Get my user
+    - name: Get current user
       ansible.builtin.set_fact:
         remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
 
-    - name: install flatpak apps
-      community.general.flatpak:
-        name:
-          - com.github.tchx84.Flatseal
-          - org.gnome.World.PikaBackup
-          - org.nickvision.tagger
+  - name: Uninstall unneeded packages
+    ansible.builtin.dnf:
+      name:
+        - baobab
+        - gnome-abrt
+        - gnome-logs
+        - gnome-maps
+        - gnome-tour
+        - gnome-weather
+        - mediawriter
+        - totem
+      state: absent
+      autoremove: yes
+
+    - name: Install MS Core Fonts
+      ansible.builtin.dnf:
+        name: 'https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm'
         state: present
 
-    - name: Install packages
+    - name: Upgrade the 'Multimedia' package group
+      ansible.builtin.dnf:
+      name: '@Multimedia'
+      state: latest
+      allowerasing: true
+
+    - name: Upgrade all packages
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+
+    - name: Install packages from rpm repos
       ansible.builtin.dnf:
         name:
           - age
@@ -50,3 +72,11 @@
           - brave-browser
         state: present
 
+
+    - name: Install flatpak apps
+      community.general.flatpak:
+        name:
+          - com.github.tchx84.Flatseal
+          - org.gnome.World.PikaBackup
+          - org.nickvision.tagger
+        state: present
