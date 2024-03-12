@@ -12,35 +12,25 @@
 
     - name: Uninstall unneeded packages
       ansible.builtin.dnf:
-        name: "{{ item }}"
+        name:
+          - baobab
+          - gnome-abrt
+          - gnome-logs
+          - gnome-maps
+          - gnome-tour
+          - gnome-weather
+          - mediawriter
+          - totem
         state: absent
         autoremove: true
-      with_items:
-        - baobab
-        - gnome-abrt
-        - gnome-logs
-        - gnome-maps
-        - gnome-tour
-        - gnome-weather
-        - mediawriter
-        - totem
 
     - name: install the rpmfusion repo packages
       dnf:
-        name: "{{ item }}"
+        name:
+          - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version}}.noarch.rpm
+          - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version}}.noarch.rpm
         state: present
-      with_items:
-        - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version}}.noarch.rpm
-        - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version}}.noarch.rpm
-
-
-    - name: Import GPG Keys
-      ansible.builtin.rpm_key:
-        key: "{{ item }}"
-        state: present
-      with_items:
-        - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-        - https://linux.teamviewer.com/pubkey/currentkey.asc
+        disable_gpg_check: true
 
     - name: Add Brave Browser Repo
       ansible.builtin.yum_repository:
@@ -51,6 +41,11 @@
         gpgcheck: true
         enabled: true
 
+    - name: Import Brave Browser GPG Key
+      ansible.builtin.rpm_key:
+        key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+        state: present
+
     - name: Add TeamViewer Repo
       ansible.builtin.yum_repository:
         name: teamviewer
@@ -60,6 +55,11 @@
         gpgcheck: true
         repo_gpgcheck: true
         enabled: true
+
+    - name: Import TeamViewer GPG Key
+      ansible.builtin.rpm_key:
+        key: https://linux.teamviewer.com/pubkey/currentkey.asc
+        state: present
 
     - name: Install MS Core Fonts
       ansible.builtin.dnf:
@@ -80,42 +80,41 @@
 
     - name: Install packages from rpm repos
       ansible.builtin.dnf:
-        name: "{{ item }}"
+        name:
+          - age
+          - ansible
+          - celluloid
+          - clamav
+          - dconf-editor
+          - geary
+          - gimp
+          - gnome-shell-extension-caffeine
+          - gnome-shell-extension-no-overview
+          - gnome-extensions-app
+          - htop
+          - inkscape
+          - langpacks-de
+          - langpacks-fr
+          - langpacks-nl
+          - langpacks-pl
+          - lynis
+          - neofetch
+          - mpv
+          - neovim
+          - pass
+          - pass-otp
+          - syncthing
+          - tldr
+          - zbar
+          - teamviewer
+          - brave-browser
         state: present
-      with_items:
-        - age
-        - ansible
-        - celluloid
-        - clamav
-        - dconf-editor
-        - geary
-        - gimp
-        - gnome-shell-extension-caffeine
-        - gnome-shell-extension-no-overview
-        - gnome-extensions-app
-        - htop
-        - inkscape
-        - langpacks-de
-        - langpacks-fr
-        - langpacks-nl
-        - langpacks-pl
-        - lynis
-        - neofetch
-        - mpv
-        - neovim
-        - pass
-        - pass-otp
-        - syncthing
-        - tldr
-        - zbar
-        - teamviewer
-        - brave-browser
+
 
     - name: Install flatpak apps
       community.general.flatpak:
-        name:  "{{ item }}"
+        name:
+          - com.github.tchx84.Flatseal
+          - org.gnome.World.PikaBackup
+          - org.nickvision.tagger
         state: present
-      with_items:
-        - com.github.tchx84.Flatseal
-        - org.gnome.World.PikaBackup
-        - org.nickvision.tagger
