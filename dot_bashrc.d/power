@@ -1,0 +1,3 @@
+alias shutdown='sudo shutdown'
+alias poweroff='sudo poweroff'
+alias reboot='sudo reboot'
