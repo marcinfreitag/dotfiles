@@ -17,4 +17,14 @@ if [[ $pc_make == *'Alienware '* ]]; then
 	popd; popd
 fi
 
+# fix input lag on thinkpad X280
+pc_make=$(sudo dmidecode -s system-version)
+if [[ $(sudo dmidecode -s system-version) == "ThinkPad X280" ]]; then
+	sudo grubby --remove-args="i915.enable_psr=0" --update-kernel=ALL
+	sudo grubby --args="i915.enable_psr=0" --update-kernel=ALL
+fi
+
+unset pc_make
+
+
 ansible-playbook ~/.config/install-packages.yml --ask-become-pass
