@@ -25,6 +25,8 @@ if [[ $(sudo dmidecode -s system-version) == "ThinkPad X280" ]]; then
 fi
 
 unset pc_make
-
+swtpm --create-config-files skip-if-exist
+sudo dnf copr enable jstaf/onedriver
+sudo dnf install onedriver
 
 ansible-playbook ~/.config/install-packages.yml --ask-become-pass
