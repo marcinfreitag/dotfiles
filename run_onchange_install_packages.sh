@@ -29,4 +29,5 @@ swtpm_setup --create-config-files skip-if-exist
 sudo dnf copr enable jstaf/onedriver
 sudo dnf install onedriver
 
+# .config/dconf-settings.ini hash: {{ include "dot_config/install-packages.yml" | sha256sum }}
 ansible-playbook ~/.config/install-packages.yml --ask-become-pass
