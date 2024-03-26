@@ -43,11 +43,14 @@
         gpgcheck: true
         enabled: true
 
-    - name: Import GPG keys
+    - name: Import brave key
       ansible.builtin.rpm_key:
-        key:
-        - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-        - https://linux.teamviewer.com/pubkey/currentkey.asc
+        key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+        state: present
+
+    - name: Import teamviewer key
+      ansible.builtin.rpm_key:
+        key: https://linux.teamviewer.com/pubkey/currentkey.asc
         state: present
 
     - name: Upgrade the 'Multimedia' package group
