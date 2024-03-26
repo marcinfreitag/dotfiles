@@ -16,6 +16,7 @@
           - baobab
           - fedora-bookmarks
           - gnome-abrt
+          - gnome-boxes
           - gnome-logs
           - gnome-maps
           - gnome-tour
@@ -42,14 +43,11 @@
         gpgcheck: true
         enabled: true
 
-    - name: Import Brave Browser GPG Key
+    - name: Import GPG keys
       ansible.builtin.rpm_key:
-        key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-        state: present
-
-    - name: Import TeamViewer GPG Key
-      ansible.builtin.rpm_key:
-        key: https://linux.teamviewer.com/pubkey/currentkey.asc
+        key:
+        - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+        - https://linux.teamviewer.com/pubkey/currentkey.asc
         state: present
 
     - name: Upgrade the 'Multimedia' package group
@@ -106,6 +104,7 @@
           - zbar
           - teamviewer
           - brave-browser
+          - '@Virtualization'
         state: present
 
 
