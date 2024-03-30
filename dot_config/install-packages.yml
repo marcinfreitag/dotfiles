@@ -43,6 +43,13 @@
         gpgcheck: true
         enabled: true
 
+    - name: Enable project Test of the user schlupov
+      community.general.copr:
+        host: copr.fedorainfracloud.org
+        state: enabled
+        name: jstaf/onedriver
+        chroot: fedora-31-x86_64
+
     - name: Import brave key
       ansible.builtin.rpm_key:
         key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
