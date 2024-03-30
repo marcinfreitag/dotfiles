@@ -48,7 +48,6 @@
         host: copr.fedorainfracloud.org
         state: enabled
         name: jstaf/onedriver
-        chroot: fedora-31-x86_64
 
     - name: Import brave key
       ansible.builtin.rpm_key:
