@@ -26,13 +26,18 @@
         state: absent
         autoremove: true
 
-    - name: install the rpmfusion repo packages
+    - name: Install the rpmfusion repo packages
       dnf:
         name:
           - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version}}.noarch.rpm
           - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version}}.noarch.rpm
         state: present
         disable_gpg_check: true
+
+    - name: Enable Fedora Copr for LXD
+        host: copr.fedorainfracloud.org
+        name: jstaf/onedriver
+        state: enabled
 
     - name: Add Brave Browser Repo
       ansible.builtin.yum_repository:
@@ -99,6 +104,7 @@
           - neofetch
           - mpv
           - neovim
+          - onedriver
           - pass
           - pass-otp
           - swtpm

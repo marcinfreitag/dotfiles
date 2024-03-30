@@ -1,9 +1,4 @@
 #!/bin/bash
 
-echo "Setting up hostname"
-if [[ "$(hostnamectl hostname)" != {{ .ws_hostname  | quote }} ]]; then
-	sudo hostnamectl hostname {{ .ws_hostname }}
-fi
-
 echo "Installing ansible"
 sudo dnf -y install ansible

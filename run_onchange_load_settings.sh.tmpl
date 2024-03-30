@@ -1,4 +1,8 @@
 #!/bin/bash
+echo "Setting up hostname"
+if [[ "$(hostnamectl hostname)" != {{ .ws_hostname  | quote }} ]]; then
+	sudo hostnamectl hostname {{ .ws_hostname }}
+fi
 
 echo "Enabling gpg-agent"
 systemctl --user enable --now gpg-agent.socket

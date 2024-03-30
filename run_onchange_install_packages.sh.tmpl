@@ -26,8 +26,8 @@ fi
 
 unset pc_make
 swtpm_setup --create-config-files skip-if-exist
-sudo dnf copr enable jstaf/onedriver
-sudo dnf install onedriver
+#sudo dnf copr enable jstaf/onedriver
+#sudo dnf install onedriver
 
 echo "Installing packages"
 # .dot_config/install-packages.yml hash: {{ include "dot_config/install-packages.yml" | sha256sum }}
