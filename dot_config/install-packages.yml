@@ -34,7 +34,8 @@
         state: present
         disable_gpg_check: true
 
-    - name: Enable Fedora Copr for LXD
+    - name: Enable Fedora Copr for onedriver
+     community.general.copr:
         host: copr.fedorainfracloud.org
         name: jstaf/onedriver
         state: enabled
