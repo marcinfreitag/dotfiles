@@ -43,7 +43,7 @@
         gpgcheck: true
         enabled: true
 
-    - name: Enable project Test of the user schlupov
+    - name: Enable Copr Repo for onedriver
       community.general.copr:
         host: copr.fedorainfracloud.org
         state: enabled
