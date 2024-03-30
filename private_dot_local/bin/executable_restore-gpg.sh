@@ -1,22 +1,26 @@
 #!/usr/bin/bash
 # Restore gpg keys for all identities from gpg-backup.tar.gz
 # run the script in the same directory as the archive
-# Source: https://www.howtogeek.com/816878/how-to-back-up-and-restore-gpg-keys-on-linux/
-
+# Source: https://access.redhat.com/solutions/2115511
 archive_dir=$(pwd)
 
 pushd ~
 
+mkdir {.ssh,.gnupg}
+chmod 700 .ssh .gnupg
 
 tar -xvzf $archive_dir/gpg-backup.tar.gz
 
 # backup public and private keys as well as the trusted database
-gpg --import public.gpg
-gpg --import private.gpg
-gpg --import-ownertrust trust.gpg
+gpg --import privatekeys.asc
+gpg --import mypubkeys.asc
+gpg --import-ownertrust otrust.txt
+
+gpg -K
+gpg -k
 
 # shred temporary files
-shred -u public.gpg private.gpg trust.gpg
+shred -u pubkeys.asc privatekeys.asc otrust.txt
 
 # display directory structure of .gnupg
 #tree .gnupg
