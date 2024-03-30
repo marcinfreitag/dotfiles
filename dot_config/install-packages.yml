@@ -34,12 +34,6 @@
         state: present
         disable_gpg_check: true
 
-    - name: Enable Fedora Copr for onedriver
-     community.general.copr:
-        host: copr.fedorainfracloud.org
-        name: jstaf/onedriver
-        state: enabled
-
     - name: Add Brave Browser Repo
       ansible.builtin.yum_repository:
         name: brave-browser
