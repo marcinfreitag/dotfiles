@@ -25,9 +25,13 @@ if [[ $(sudo dmidecode -s system-version) == "ThinkPad X280" ]]; then
 fi
 
 unset pc_make
+echo "Configure libvirt"
 swtpm_setup --create-config-files skip-if-exist
-#sudo dnf copr enable jstaf/onedriver
-#sudo dnf install onedriver
+sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/libvirt/libvirtd.conf
+sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvirt/libvirtd.conf
+sudo systemctl enable --now libvirtd
+sudo usermod -aG libvirt $(whoami)
+
 
 echo "Installing packages"
 # .dot_config/install-packages.yml hash: {{ include "dot_config/install-packages.yml" | sha256sum }}
