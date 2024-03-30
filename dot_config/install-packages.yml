@@ -88,6 +88,7 @@
           - dconf-editor
           - edk2-ovmf
           - flatseal
+          - file-roller
           - geary
           - gimp
           - gnome-tweaks
