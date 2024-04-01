@@ -23,16 +23,15 @@ if [[ $(sudo dmidecode -s system-version) == "ThinkPad X280" ]]; then
 	sudo grubby --remove-args="i915.enable_psr=0" --update-kernel=ALL
 	sudo grubby --args="i915.enable_psr=0" --update-kernel=ALL
 fi
-
 unset pc_make
+
+echo "Installing packages"
+# .dot_config/install-packages.yml hash: {{ include "dot_config/install-packages.yml" | sha256sum }}
+ansible-playbook {{ joinPath .chezmoi.sourceDir "dot_config/install-packages.yml" | quote }} --ask-become-pass
+
 echo "Configure libvirt"
 swtpm_setup --create-config-files skip-if-exist
 sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/libvirt/libvirtd.conf
 sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvirt/libvirtd.conf
 sudo systemctl enable --now libvirtd
 sudo usermod -aG libvirt $(whoami)
-
-
-echo "Installing packages"
-# .dot_config/install-packages.yml hash: {{ include "dot_config/install-packages.yml" | sha256sum }}
-ansible-playbook {{ joinPath .chezmoi.sourceDir "dot_config/install-packages.yml" | quote }} --ask-become-pass
