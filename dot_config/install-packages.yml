@@ -89,8 +89,10 @@
           - edk2-ovmf
           - flatseal
           - file-roller
+          - foliate
           - geary
           - gimp
+          - gnome-epub-thumbnailer
           - gnome-tweaks
           - gnome-shell-extension-caffeine
           - gnome-shell-extension-dash-to-panel
@@ -125,5 +127,4 @@
         name:
           - org.gnome.World.PikaBackup
           - org.nickvision.tagger
-          - io.github.troyeguo.koodo-reader
         state: present
