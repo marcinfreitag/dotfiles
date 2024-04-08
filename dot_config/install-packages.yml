@@ -125,4 +125,5 @@
         name:
           - org.gnome.World.PikaBackup
           - org.nickvision.tagger
+          - io.github.troyeguo.koodo-reader
         state: present
