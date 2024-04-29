@@ -43,12 +43,6 @@
         gpgcheck: true
         enabled: true
 
-    - name: Enable Copr Repo for onedriver
-      community.general.copr:
-        host: copr.fedorainfracloud.org
-        state: enabled
-        name: jstaf/onedriver
-
     - name: Import brave key
       ansible.builtin.rpm_key:
         key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
@@ -108,7 +102,6 @@
           - neofetch
           - mpv
           - neovim
-          - onedriver
           - pass
           - pass-otp
           - swtpm
