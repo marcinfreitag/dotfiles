@@ -104,6 +104,7 @@
           - neovim
           - pass
           - pass-otp
+          - pdftk
           - swtpm
           - syncthing
           - tldr
