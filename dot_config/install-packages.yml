@@ -81,6 +81,7 @@
           - clamav
           - dconf-editor
           - edk2-ovmf
+          - fastfetch
           - flatseal
           - file-roller
           - foliate
@@ -99,7 +100,6 @@
           - langpacks-nl
           - langpacks-pl
           - lynis
-          - neofetch
           - mpv
           - neovim
           - pass
