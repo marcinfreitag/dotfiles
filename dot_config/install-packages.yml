@@ -109,6 +109,7 @@
           - swtpm
           - syncthing
           - tldr
+          - totem-video-thumbnailer
           - xournalpp
           - zbar
           - teamviewer
@@ -122,4 +123,5 @@
         name:
           - org.gnome.World.PikaBackup
           - org.nickvision.tagger
+          - org.gnome.Totem
         state: present
