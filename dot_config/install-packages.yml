@@ -34,20 +34,6 @@
         state: present
         disable_gpg_check: true
 
-    - name: Add Brave Browser Repo
-      ansible.builtin.yum_repository:
-        name: brave-browser
-        description: Brave Browser
-        baseurl: https://brave-browser-rpm-release.s3.brave.com/x86_64/
-        gpgkey: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-        gpgcheck: true
-        enabled: true
-
-    - name: Import brave key
-      ansible.builtin.rpm_key:
-        key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-        state: present
-
     - name: Import teamviewer key
       ansible.builtin.rpm_key:
         key: https://linux.teamviewer.com/pubkey/currentkey.asc
@@ -110,10 +96,8 @@
           - syncthing
           - tldr
           - totem-video-thumbnailer
-          - xournalpp
           - zbar
           - teamviewer
-          - brave-browser
           - '@Virtualization'
         state: present
 
