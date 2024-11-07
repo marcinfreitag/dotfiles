@@ -142,3 +142,24 @@
           cmd: python3 setup.py install && sudo python3 setup.py install_data
           chdir: /src/alienfx
 
+    - name: Install hyprland
+      block:
+
+    - name: Install copr repo
+      community.general.copr:
+        name: solopasha/hyprland
+        host: copr.fedorainfracloud.org
+        state: enabled
+
+      - name: Hyprland. Install rpms
+        ansible.builtin.dnf:
+          name:
+            - hypridle
+            - hyprland
+            - hyprlock
+            - hyprshot
+            - kitty
+            - waybar
+            - xdg-desktop-portal-hyprland
+          state: present
+
