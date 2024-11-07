@@ -145,11 +145,11 @@
     - name: Install hyprland
       block:
 
-    - name: Install copr repo
-      community.general.copr:
-        name: solopasha/hyprland
-        host: copr.fedorainfracloud.org
-        state: enabled
+      - name: Install copr repo
+        community.general.copr:
+          name: solopasha/hyprland
+          host: copr.fedorainfracloud.org
+          state: enabled
 
       - name: Hyprland. Install rpms
         ansible.builtin.dnf:
