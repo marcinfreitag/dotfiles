@@ -13,7 +13,7 @@
     - name: Uninstall unneeded packages
       ansible.builtin.dnf:
         name:
-          - abrt-gui
+          - abrt-desktop
           - baobab
           - fedora-bookmarks
           - gnome-boxes
