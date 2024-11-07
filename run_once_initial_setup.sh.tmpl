@@ -1,4 +1,8 @@
 #!/bin/bash
 
-echo "Installing ansible"
+echo "Install ansible"
 sudo dnf -y install ansible
+
+echo "Update ansible collecions"
+ansible-galaxy collection install -U community.general
+

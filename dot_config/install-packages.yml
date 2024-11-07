@@ -13,6 +13,7 @@
     - name: Uninstall unneeded packages
       ansible.builtin.dnf:
         name:
+          - abrt-gui
           - baobab
           - fedora-bookmarks
           - gnome-boxes
@@ -100,7 +101,6 @@
           - '@Virtualization'
         state: present
 
-
     - name: Install flatpak apps
       community.general.flatpak:
         name:
@@ -108,3 +108,37 @@
           - org.nickvision.tagger
           - org.gnome.Totem
         state: present
+
+    - name: Alienfx-gtk. Install dependencies, pull project from github, install binaries
+      when: ansible_facts['bios_vendor'] == "Alienware"
+      block:
+
+      - name: Alienfx. Install rpms
+        ansible.builtin.dnf:
+          name:
+            - cairo-devel
+            - pipx
+            - python3-pyusb
+            - gobject-introspection
+            - gtk3-devel
+          state: present
+
+      - name: Alienfx. Ensure path for python modules
+        ansible.builtin.shell: pipx ensurepath --global
+
+      - name: Alienfx. Install python modules
+        community.general.pipx:
+          name: future
+          state: present
+          global: true
+
+      - name: Alienfx. Clone git repo
+        ansible.builtin.git:
+          repo: https://github.com/trackmastersteve/alienfx.git
+          dest: /src/alienfx
+
+      - name: Alienfx. Install binaries
+        ansible.builtin.shell:
+          cmd: python3 setup.py install && sudo python3 setup.py install_data
+          chdir: /src/alienfx
+
