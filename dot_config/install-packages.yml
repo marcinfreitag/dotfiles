@@ -30,7 +30,8 @@
           - libzhuyin
           - mediawriter
           - totem
-        state: removed
+        state: absent
+        autoremove: yes
 
     - name: Install the rpmfusion repo packages
       dnf:
