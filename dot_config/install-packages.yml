@@ -14,7 +14,6 @@
       ansible.builtin.dnf:
         name:
           - abrt-desktop
-          - anthy-unicode
           - baobab
           - fedora-bookmarks
           - geary
@@ -25,10 +24,8 @@
           - gnome-maps
           - gnome-tour
           - gnome-weather
-          - libhangul
-          - libpinyin
-          - libzhuyin
           - mediawriter
+          - ibus-hangul
           - totem
         state: absent
         autoremove: yes
