@@ -31,7 +31,6 @@
           - mediawriter
           - totem
         state: removed
-        autoremove: true
 
     - name: Install the rpmfusion repo packages
       dnf:
