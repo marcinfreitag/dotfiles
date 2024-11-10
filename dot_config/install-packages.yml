@@ -139,7 +139,7 @@
 
       - name: Alienfx. Install binaries
         ansible.builtin.shell:
-          cmd: python3 setup.py install && sudo python3 setup.py install_data
+          cmd: sudo python3 setup.py install && sudo python3 setup.py install_data
           chdir: /src/alienfx
 
     - name: Install hyprland
