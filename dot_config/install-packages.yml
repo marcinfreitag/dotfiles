@@ -32,6 +32,7 @@
           - totem
         state: absent
         autoremove: true
+        skip_broken: true
 
     - name: Install the rpmfusion repo packages
       dnf:
