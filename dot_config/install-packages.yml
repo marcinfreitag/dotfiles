@@ -26,6 +26,8 @@
           - gnome-weather
           - mediawriter
           - ibus-hangul
+          - ibus-libpinyin
+          - ibus-libzhuyin
           - totem
         state: absent
         autoremove: yes
