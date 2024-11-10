@@ -2,7 +2,6 @@
 - name: Install software
   hosts: localhost
   become: true
-  connection: local
   gather_facts: true
 
   tasks:
