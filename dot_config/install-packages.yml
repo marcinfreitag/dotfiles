@@ -16,7 +16,10 @@
           - abrt-desktop
           - baobab
           - fedora-bookmarks
+          - geary
           - gnome-boxes
+          - gnome-calendar
+          - gnome-contacts
           - gnome-logs
           - gnome-maps
           - gnome-tour
@@ -95,6 +98,7 @@
           - swtpm
           - syncthing
           - tldr
+          - thunderbird
           - totem-video-thumbnailer
           - zbar
           - teamviewer
