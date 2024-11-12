@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Install Ansible on supported Linux distro
+#
+
+# Identify distro
+. /etc/os-release
+
+echo "Install Ansible for $PRETTY_NAME"
+# Fedora
+if [ "$ID" == "fedora" ]; then
+  sudo dnf -y install ansible
+else
+  echo "Distribution unsupported"
+  exit 1
+fi
+
+echo "Update Ansible Collecions"
+ansible-galaxy collection install -U community.general
+
