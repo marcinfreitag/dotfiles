@@ -67,6 +67,7 @@
     - name: Install packages from rpm repos
       ansible.builtin.dnf:
         name:
+          - adobe-source-sans-pro-fonts
           - age
           - ansible
           - celluloid
