@@ -7,13 +7,23 @@
 . /etc/os-release
 
 echo "Install Ansible for $PRETTY_NAME"
-# Fedora
-if [ "$ID" == "fedora" ]; then
-  sudo dnf -y install ansible
-else
-  echo "Distribution unsupported"
-  exit 1
-fi
+
+case $ID in
+
+  fedora)
+    sudo dnf -y install ansible
+    ;;
+
+  opensuse-tumbleweed)
+    sudo zypper --non-interactive in ansible
+    ;;
+
+  *)
+    echo "Distribution $PRETTY_NAME unsupported"
+    exit 1
+    ;;
+    
+esac
 
 echo "Update Ansible Collecions"
 ansible-galaxy collection install -U community.general
