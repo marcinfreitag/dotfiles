@@ -1,30 +1,15 @@
+{{  if eq .chezmoi.os "linux" -}}
 #!/usr/bin/env bash
 #
 # Install Ansible on supported Linux distro
 #
 
-# Identify distro
-. /etc/os-release
-
-echo "Install Ansible for $PRETTY_NAME"
-
-case $ID in
-
-  fedora)
-    sudo dnf -y install ansible
-    ;;
-
-  opensuse-tumbleweed)
-    sudo zypper --non-interactive in ansible
-    ;;
-
-  *)
-    echo "Distribution $PRETTY_NAME unsupported"
-    exit 1
-    ;;
-    
-esac
+{{-   if eq .chezmoi.osRelease.id "fedora" }}
+sudo dnf -y install ansible
+{{-   else if eq .chezmoi.osRelease.id "opensuse-tumbleweed" }}
+sudo zypper --non-interactive in ansible
+{{-   end }}
 
 echo "Update Ansible Collecions"
 ansible-galaxy collection install -U community.general
-
+{{- end }}
