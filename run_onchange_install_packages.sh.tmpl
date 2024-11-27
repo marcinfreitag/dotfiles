@@ -11,6 +11,8 @@ unset pc_make
 echo "Installing language support for flatpaks"
 sudo flatpak config --set languages "en;de;pl;fr;nl"
 
+# fedora linux stuff
+{{- if eq .chezmoi.osRelease.id "fedora" }}
 echo "Installing packages"
 # .dot_config/install-packages.yml hash: {{ include "dot_config/install-packages.yml" | sha256sum }}
 ansible-playbook {{ joinPath .chezmoi.sourceDir "dot_config/install-packages.yml" | quote }} --ask-become-pass
@@ -21,3 +23,4 @@ sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/
 sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvirt/libvirtd.conf
 sudo systemctl enable --now libvirtd
 sudo usermod -aG libvirt $(whoami)
+{{- end }}
