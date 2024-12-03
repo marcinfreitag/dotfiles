@@ -14,6 +14,6 @@ xdg-settings set default-web-browser org.mozilla.firefox.desktop
 # fedora linux stuff
 {{- if eq .chezmoi.osRelease.id "fedora" }}
 echo "Loading dconf settings"
-# .config/dconf-settings.ini hash: {{ include "dot_config/dconf-settings.ini" | sha256sum }}
-dconf load / < {{ joinPath .chezmoi.sourceDir "dot_config/dconf-settings.ini" | quote }}
+# dot_config/provisioning/dconf-settings.ini hash: {{ include "dot_config/provisioning/dconf-settings.ini" | sha256sum }}
+dconf load / < "/home/$USER/.config/provisioning/dconf-settings.ini"
 {{- end }}

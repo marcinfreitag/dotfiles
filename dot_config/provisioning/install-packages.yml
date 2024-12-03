@@ -170,4 +170,4 @@
             - waybar
             - xdg-desktop-portal-hyprland
           state: present
-
+          

@@ -14,8 +14,8 @@ sudo flatpak config --set languages "en;de;pl;fr;nl"
 # fedora linux stuff
 {{- if eq .chezmoi.osRelease.id "fedora" }}
 echo "Installing packages"
-# .dot_config/install-packages.yml hash: {{ include "dot_config/install-packages.yml" | sha256sum }}
-ansible-playbook {{ joinPath .chezmoi.sourceDir "dot_config/install-packages.yml" | quote }} --ask-become-pass
+# dot_config/provisioning/install-packages.yml hash: {{ include "dot_config/provisioning/install-packages.yml" | sha256sum }}
+ansible-playbook "/home/$USER/.config/provisioning/install-packages.yml" --ask-become-pass
 
 echo "Configure libvirt"
 swtpm_setup --create-config-files skip-if-exist
