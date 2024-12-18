@@ -70,15 +70,12 @@
           - adobe-source-sans-pro-fonts
           - age
           - ansible
-          - celluloid
           - clamav
           - dconf-editor
           - edk2-ovmf
           - fastfetch
           - flatseal
           - file-roller
-          - foliate
-          - geary
           - gimp
           - gnome-epub-thumbnailer
           - gnome-tweaks
@@ -95,6 +92,7 @@
           - libheif-tools
           - lynis
           - mpv
+          - mupdf
           - neovim
           - pass
           - pass-otp
@@ -114,7 +112,7 @@
         name:
           - org.gnome.World.PikaBackup
           - org.nickvision.tagger
-          - org.gnome.Totem
+          - dev.bragefuglseth.Keypunch
         state: present
 
     - name: Alienfx-gtk. Install dependencies, pull project from github, install binaries
