@@ -8,7 +8,6 @@
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
-        "sway/scratchpad"
     ],
     "modules-center": [
         "hyprland/window"
@@ -28,19 +27,15 @@
         "tray"
     ],
     // Modules configuration
-    "sway/workspaces": {
+    "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "warp-on-scroll": false,
         "format": "{name}: {icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "",
-            "5": "",
             "urgent": "",
             "focused": "",
+            "active": "",
             "default": ""
         }
     },
