@@ -75,6 +75,7 @@
           - edk2-ovmf
           - fastfetch
           - flatseal
+          - feh
           - file-roller
           - gimp
           - gnome-epub-thumbnailer
