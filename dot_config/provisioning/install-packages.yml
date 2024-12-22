@@ -169,5 +169,6 @@
             - kitty
             - waybar
             - xdg-desktop-portal-hyprland
+            - swaync
           state: present
           

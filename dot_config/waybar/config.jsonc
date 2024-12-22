@@ -7,7 +7,7 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces",
+        "hyprland/workspaces"
     ],
     "modules-center": [
         "hyprland/window"
@@ -24,14 +24,14 @@
         "hyprland/language",
         "battery",
         "clock",
-        "tray"
+        "tray",
+	"custom/power"
     ],
     // Modules configuration
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "warp-on-scroll": false,
-        //"format": "{name}: {icon}",
         "format": " {name} ",
         "format-icons": {
             "urgent": "",
@@ -187,8 +187,11 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
+    "hyprland/language": {
+	    "format": "{short}"
+    },
     "custom/power": {
-        "format" : "⏻ ",
+        "format" : " ⏻ ",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
@@ -196,7 +199,8 @@
 			"shutdown": "shutdown",
 			"reboot": "reboot",
 			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
+			"lock": "hyprlock"/*,
+			"hibernate": "systemctl hibernate"*/
 		}
     }
 }

@@ -4,8 +4,8 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    background-color: rgba(0, 0, 0, 0.9);
+/*    border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -98,13 +98,24 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
+#power {
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 20px;
+}
+
 #mpd {
     padding: 0 10px;
     color: #ffffff;
 }
 
-#window,
+#window {
+    font-family: 'Cantarel';
+    font-weight: bold;
+}
+
 #workspaces {
+    font-family: 'Cantarel';
     margin: 0 4px;
 }
 
@@ -119,6 +130,8 @@ button:hover {
 }
 
 #clock {
+    font-family: 'Cantarel';
+    font-weight: bold;
     background-color: #64727D;
 }
 
@@ -279,6 +292,7 @@ label:focus {
 }
 
 #language {
+    font-family: 'Cantarel';
     background: #00b093;
     color: #740864;
     padding: 0 5px;
