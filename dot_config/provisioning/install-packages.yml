@@ -21,6 +21,7 @@
           - gnome-contacts
           - gnome-logs
           - gnome-maps
+          - gnome-software
           - gnome-tour
           - gnome-weather
           - mediawriter
