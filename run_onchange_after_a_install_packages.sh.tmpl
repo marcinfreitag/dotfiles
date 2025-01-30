@@ -14,7 +14,7 @@ sudo flatpak config --set languages "en;de;pl;fr;nl"
 # fedora linux stuff
 {{- if eq .chezmoi.osRelease.id "fedora" }}
 # debloat system
-# private_dot_local/bin/debloat-fedora.sh hash: {{ include "private_dot_local/bin/debloat-fedora.sh" | sha256sum }}
+# private_dot_local/bin/executable_debloat-fedora.sh hash: {{ include "private_dot_local/bin/executable_debloat-fedora.sh" | sha256sum }}
 /home/$USER/.local/bin/debloat-fedora.sh
 
 echo "Installing packages"
