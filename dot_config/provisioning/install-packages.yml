@@ -9,30 +9,6 @@
       ansible.builtin.set_fact:
         remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
 
-    - name: Uninstall unneeded packages
-      ansible.builtin.dnf:
-        name:
-          - abrt-desktop
-          - baobab
-          - fedora-bookmarks
-          - geary
-          - gnome-boxes
-          - gnome-calendar
-          - gnome-contacts
-          - gnome-logs
-          - gnome-maps
-          - gnome-software
-          - gnome-tour
-          - gnome-weather
-          - mediawriter
-          - ibus-anthy
-          - ibus-hangul
-          - ibus-libpinyin
-          - ibus-libzhuyin
-          - totem
-        state: absent
-        autoremove: yes
-
     - name: Install the rpmfusion repo packages
       dnf:
         name:

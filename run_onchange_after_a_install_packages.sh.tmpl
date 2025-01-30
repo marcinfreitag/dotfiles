@@ -13,6 +13,10 @@ sudo flatpak config --set languages "en;de;pl;fr;nl"
 
 # fedora linux stuff
 {{- if eq .chezmoi.osRelease.id "fedora" }}
+# debloat system
+# private_dot_local/bin/debloat-fedora.sh hash: {{ include "private_dot_local/bin" | sha256sum }}
+/home/$USER/.local/bin/debloat-fedora.sh
+
 echo "Installing packages"
 # dot_config/provisioning/install-packages.yml hash: {{ include "dot_config/provisioning/install-packages.yml" | sha256sum }}
 ansible-playbook "/home/$USER/.config/provisioning/install-packages.yml" --ask-become-pass
