@@ -1,16 +1,9 @@
 #!/usr/bin/env bash
 #
-#   _       _ _         _     
-#  (_)_ __ (_) |_   ___| |__  
-#  | | '_ \| | __| / __| '_ \ 
-#  | | | | | | |_ _\__ \ | | |
-#  |_|_| |_|_|\__(_)___/_| |_|
-#
-#
-#  Installs ansible and gum on fedora systems
+# init.sh - install necessary packages for custom chezmoi scripts
 #
 
-sudo dnf -y install ansible gum
+# install ansible, gum and kitty
+echo ":: Installing necessary packages for chezmoi scripts"
+sudo dnf -y install ansible gum kitty
 
-# ansible-galaxy collection install -U community.general
-                             

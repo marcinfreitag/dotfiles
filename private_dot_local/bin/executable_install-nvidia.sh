@@ -14,7 +14,7 @@ function create_autostart_entry() {
 	[Desktop Entry]
 	Name=Install NVIDIA. Stage $1
 	Comment=Configure system and set up software on the fedora workstation
-	Exec=gnome-terminal -e "$script_full_path -s $1"
+	Exec=kitty "$script_full_path -s $1"
 	Icon=org.gnome.Terminal
 	Type=Application
 	StartupNotify=true

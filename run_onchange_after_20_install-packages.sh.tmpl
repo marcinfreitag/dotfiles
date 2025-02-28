@@ -1,0 +1,7 @@
+#!/bin/bash
+
+gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Package installation"
+
+# dot_config/provisioning/install-packages.yml hash: {{ include "dot_config/provisioning/install-packages.yml" | sha256sum }}
+ansible-playbook "/home/$USER/.config/provisioning/install-packages.yml" --ask-become-pass
+

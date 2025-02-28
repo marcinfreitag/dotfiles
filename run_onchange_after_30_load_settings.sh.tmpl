@@ -1,0 +1,26 @@
+#!/bin/bash
+
+gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Additional workstation and user settings"
+
+echo ":: Setting up hostname"
+if [[ "$(hostnamectl hostname)" != {{ .ws_hostname  | quote }} ]]; then
+	sudo hostnamectl hostname {{ .ws_hostname }}
+fi
+
+echo ":: Enabling gpg-agent"
+systemctl --user enable --now gpg-agent.socket
+systemctl --user enable --now gpg-agent-ssh.socket
+
+echo ":: Setting default browser"
+xdg-settings set default-web-browser org.mozilla.firefox.desktop
+
+echo ":: Configure libvirt"
+swtpm_setup --create-config-files skip-if-exist
+sudo sed -i 's/#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/g' /etc/libvirt/libvirtd.conf
+sudo sed -i 's/#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/g' /etc/libvirt/libvirtd.conf
+sudo systemctl enable --now libvirtd
+sudo usermod -aG libvirt $(whoami)
+
+echo ":: Loading dconf settings"
+# dot_config/dconf/custom-settings.ini hash: {{ include "dot_config/dconf/custom-settings.ini" | sha256sum }}
+dconf load / < "/home/$USER/.config/dconf/custom-settings.ini"
