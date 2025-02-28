@@ -1,0 +1,13 @@
+# 20-variables
+
+# neovim
+export EDITOR=/usr/bin/nvim
+export MANPAGER='/usr/bin/nvim +Man!'
+
+# GPG agent
+export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+
+# Cursor
+ export XCURSOR_SIZE=$(gsettings get org.gnome.desktop.interface cursor-size)
+ #gsettings set  org.gnome.desktop.interface cursor-theme 'Adwaita'
+
