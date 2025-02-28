@@ -7,3 +7,6 @@
 echo ":: Installing necessary packages for chezmoi scripts"
 sudo dnf -y install ansible gum kitty
 
+echo ":: Update ansbible modules"
+ansible-galaxy collection install -U community.general
+
