@@ -2,21 +2,22 @@
  * style.css - waybar styling
  */
 
-/* Colour declaration */
-@define-color backgroundDark #000000;
-@define-color backgroundLight #FFFFFF;
-@define-color textDark #000000;
-@define-color textLight #FFFFFF;
+/* Colour declaration based on gnome */
+@define-color dark #000000;
+@define-color light #FFFFFF;
+@define-color highlight #FFFFFF;
+@define-color inactive #7F7F7F;
 
 * {
-    font-family: "Fira Sans Semibold", "Font Awesome 6 Free", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Fira Sans Semibold", "Font Awesome 6 Free";
     font-weight: bold;
     border: none;
     border-radius: 0px;
+    opacity: 1;
 }
 
 window#waybar {
-    background-color: rgba(0,0,0,0.8);
+    background-color: @dark;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -32,25 +33,37 @@ window#waybar {
 #workspaces button {
     padding: 0px 6px;
     margin: 0px 2px;
-    border-radius: 3px 3px 3px 3px;
     min-width: 20px;
-    border: 0px;
-    color: @textLight;
-    opacity: 0.8;
+    border-radius: 5px 5px 5px 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: @light;
+    opacity: 1;
+    color: @light;
+}
+
+#workspaces button.empty {
+    border-radius: 5px 5px 5px 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: @inactive;
+    color: @inactive;
+    opacity: 1;
 }
 
 #workspaces button.active {
-    color: @textDark;
-    background: @backgroundLight;
+    color: @dark;
+    background: @light;
     border-radius: 5px 5px 5px 5px;
-    transition: all 0.1s linear;
-    opacity: 0.8;
+    border-color: @light;
+    opacity: 1;
 }
 
 #workspaces button:hover {
-    color: @textDark;
-    background: @backgroundLight;
+    color: @dark;
+    background: @highlight;
     border-radius: 10px 10px 10px 10px;
+    /*transition: all 0.1s linear;*/
     opacity: 1;
 }
 
@@ -59,22 +72,22 @@ window#waybar {
     margin: 4px;
     padding: 2px 4px;
     border: none;
-    color: @textLight;
+    color: @light;
     font-size:16px;
     font-weight: normal;
-    opacity: 0.8;
+    opacity: 1;
 }
 
-window#waybar.empty #window {
+/*window#waybar.empty #window {
     background-color: transparent;
-}
+}*/
 
 /* Tray */
 #tray {
     margin: 4px;
     padding: 2px 4px;
     border: none;   
-    opacity: 0.8;
+    opacity: 1;
 }
 
 #tray > .passive {
@@ -91,8 +104,8 @@ window#waybar.empty #window {
     padding: 2px 4px;
     border: none;
     font-size: 16px;
-    color: @textLight;
-    opacity:0.8;
+    color: @light;
+    opacity: 1;
 }
 
 /* clock */
@@ -101,24 +114,24 @@ window#waybar.empty #window {
     padding: 2px 4px;
     border: none;   
     font-size: 16px;
-    color: @textLight;
-    opacity: 0.8;
+    color: @light;
+    opacity: 1;
 }
 /* Idle inhibitor */
 #idle_inhibitor {
-    color: @textLight;
+    color: @light;
     margin: 4px;
     padding: 2px 4px;
     border: none;   
-    opacity: 0.8;
+    opacity: 1;
  
 }
 
 #idle_inhibitor.activated {
-color: @textLight;
+color: @light;
     margin: 4px;
     padding: 2px 4px;
-
+    opacity: 1;
 }
 
 /* Power profiles daemon */
@@ -127,8 +140,8 @@ color: @textLight;
     padding: 2px 4px;
     border: none;   
     font-size: 16px;
-    color: @textLight;
-    opacity: 0.8;
+    color: @textlight;
+    opacity: 1;
 }
 
 /* Battery */
@@ -137,17 +150,17 @@ color: @textLight;
     padding: 2px 4px;
     border: none;   
     font-size: 16px;
-    color: @textLight;
-    opacity: 0.8;
+    color: @light;
+    opacity: 1;
 }
 
 #battery.charging, #battery.plugged {
-    color: @textLight;
+    color: @light;
 }
 
 @keyframes blink {
     to {
-        color: @textLight;
+        color: @light;
     }
 }
 
@@ -166,19 +179,19 @@ color: @textLight;
     padding: 2px 4px;
     border:none;   
     font-size:16px;
-    color: @textLight;
-    opacity: 0.8;
+    color: @light;
+    opacity: 1;
 }
 
 /* Tooltips */
 tooltip {
     border-radius: 5px;
-    background-color: @backgroundLight;
+    background-color: @inactive;
     opacity:1;
     padding:20px;
     margin:0px;
 }
 
 tooltip label {
-    color: @textDark;
+    color: @dark;
 }
