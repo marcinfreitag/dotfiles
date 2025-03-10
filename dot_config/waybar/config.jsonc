@@ -109,7 +109,7 @@
     // Custom exit
     "custom/exit": {
         "format": "",
-        "on-click": "~/.config/wlogout/launch-wlogout.sh",
+        "on-click": "~/.local/bin/powermenu.sh",
         "tooltip" : false
     }
 }
