@@ -77,6 +77,7 @@
           - pass
           - pass-otp
           - pdftk
+          - python3-pip
           - swtpm
           - syncthing
           - tldr
@@ -86,6 +87,10 @@
           - teamviewer
           - '@Virtualization'
         state: present
+
+    - name: Install pywal
+        ansible.builtin.shell:
+          cmd: sudo pip3 install pywal
 
     - name: Install flatpak apps
       community.general.flatpak:
