@@ -77,7 +77,7 @@
           - pass
           - pass-otp
           - pdftk
-          - python3-pip
+          - pipx
           - swtpm
           - syncthing
           - tldr
@@ -88,9 +88,14 @@
           - '@Virtualization'
         state: present
 
+    - name: Setup pipx
+      ansible.builtin.shell: pipx ensurepath --global
+
     - name: Install pywal
-        ansible.builtin.shell:
-          cmd: sudo pip3 install pywal
+      community.general.pipx:
+        name: pywal
+        state: present
+        global: true
 
     - name: Install flatpak apps
       community.general.flatpak:
@@ -108,14 +113,10 @@
         ansible.builtin.dnf:
           name:
             - cairo-devel
-            - pipx
             - python3-pyusb
             - gobject-introspection
             - gtk3-devel
           state: present
-
-      - name: Alienfx. Ensure path for python modules
-        ansible.builtin.shell: pipx ensurepath --global
 
       - name: Alienfx. Install python modules
         community.general.pipx:
