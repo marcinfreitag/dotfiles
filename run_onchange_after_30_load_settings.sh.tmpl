@@ -23,4 +23,5 @@ sudo usermod -aG libvirt $(whoami)
 
 echo ":: Loading dconf settings"
 # dot_config/dconf/custom-settings.ini hash: {{ include "dot_config/dconf/custom-settings.ini" | sha256sum }}
+dconf reset -f /org/
 dconf load / < "/home/$USER/.config/dconf/custom-settings.ini"
