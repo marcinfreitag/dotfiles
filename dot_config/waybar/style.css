@@ -173,6 +173,16 @@ color: @light;
     animation-direction: alternate;
 }
 
+/* Custom Notifications */
+#custom-notifications {
+    margin: 4px;
+    padding: 2px 4px;
+    border:none;   
+    font-size:16px;
+    color: @light;
+    opacity: 1;
+}
+
 /* Custom Exit */
 #custom-exit {
     margin: 4px;
