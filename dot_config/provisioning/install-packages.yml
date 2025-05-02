@@ -52,7 +52,6 @@
           - edk2-ovmf
           - fastfetch
           - flatseal
-          - feh
           - file-roller
           - gimp
           - gnome-epub-thumbnailer
@@ -74,7 +73,6 @@
           - mpv
           - mupdf
           - neovim
-          - papirus-icon-theme
           - pass
           - pass-otp
           - pdftk
@@ -101,9 +99,7 @@
     - name: Install flatpak apps
       community.general.flatpak:
         name:
-          - org.gnome.World.PikaBackup
           - org.nickvision.tagger
-          - dev.bragefuglseth.Keypunch
         state: present
 
     - name: Alienfx-gtk. Install dependencies, pull project from github, install binaries
