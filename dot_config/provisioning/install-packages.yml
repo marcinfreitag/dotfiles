@@ -152,5 +152,8 @@
             - waybar
             - xdg-desktop-portal-hyprland
             - swaync
+            - blueman
+            - network-manager-applet
+            - pasystray
           state: present
           
