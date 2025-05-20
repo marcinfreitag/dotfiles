@@ -31,10 +31,10 @@
 
     // Modules configuration
 
-    // Workspaces
+    // Workspaces; max workspaces 5
     "hyprland/workspaces": {
         "on-scroll-up": "hyprctl dispatch workspace r-1",
-        "on-scroll-down": "hyprctl dispatch workspace r+1",
+        "on-scroll-down": "[[ $(hyprctl activeworkspace -j | jq -r '.id') -lt 5 ]] && hyprctl dispatch workspace r+1 || hyprctl dispatch workspace 5",
         "active-only": false,
         "all-outputs": true,
         "format": "{}",
