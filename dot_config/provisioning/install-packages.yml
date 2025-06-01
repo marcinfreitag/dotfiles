@@ -24,7 +24,7 @@
 
     - name: Upgrade the 'Multimedia' package group
       ansible.builtin.dnf:
-        name: '@Multimedia'
+        name: '@multimedia'
         state: latest
         allowerasing: true
 
