@@ -69,7 +69,7 @@
 
     // Clock
     "clock": {
-        "format": "{:%d %b %R"},
+        "format": "{:%d %b  %R}",
         "tooltip-format": "<tt><big>{calendar}</big></tt>",
         //"format-alt": "{:%d/%m/%y}"
     },
