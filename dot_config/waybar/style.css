@@ -9,7 +9,7 @@
 @define-color inactive #7F7F7F;
 
 * {
-    font-family: "Fira Sans Semibold", "Font Awesome 6 Free";
+    font-family: "Cantarell", "Font Awesome 6 Free";
     font-weight: bold;
     border: none;
     border-radius: 0px;
@@ -18,35 +18,24 @@
 
 window#waybar {
     background-color: @dark;
-    transition-property: background-color;
-    transition-duration: .5s;
 }
 
 /* Workspaces */
 #workspaces {
-    margin: 4px;
-    padding: 2px 4px;
+    margin: 2px 0px 4px 2px;
     border: none;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 #workspaces button {
-    padding: 0px 6px;
-    margin: 0px 2px;
     min-width: 20px;
-    border-radius: 5px 5px 5px 5px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: @light;
+    padding: 0px 6px;
+    margin: 0px 2px 0px 0px;
     opacity: 1;
     color: @light;
 }
 
 #workspaces button.empty {
-    border-radius: 5px 5px 5px 5px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: @inactive;
     color: @inactive;
     opacity: 1;
 }
@@ -54,23 +43,20 @@ window#waybar {
 #workspaces button.active {
     color: @dark;
     background: @light;
-    border-radius: 5px 5px 5px 5px;
-    border-color: @light;
     opacity: 1;
 }
 
 #workspaces button:hover {
     color: @dark;
     background: @highlight;
-    border-radius: 10px 10px 10px 10px;
-    /*transition: all 0.1s linear;*/
     opacity: 1;
 }
+/* End Workspaces */
 
 /* Window */
 #window {
-    margin: 4px;
-    padding: 2px 4px;
+    margin: 2px 0px 4px 2px;
+    padding: 0px 4px 0px 4px;
     border: none;
     color: @light;
     font-size:16px;
@@ -78,14 +64,17 @@ window#waybar {
     opacity: 1;
 }
 
-/*window#waybar.empty #window {
+/*
+window#waybar.empty #window {
     background-color: transparent;
-}*/
+}
+ */
+/* End Window */
 
 /* Tray */
 #tray {
-    margin: 4px;
-    padding: 2px 4px;
+    margin: 2px 0px 4px 2px;
+    padding: 0px 4px 0px 4px;
     border: none;   
     opacity: 1;
 }
@@ -97,47 +86,56 @@ window#waybar {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
 }
+/* End Tray */
 
 /* Language */
 #language {
-    margin: 4px;
-    padding: 2px 4px;
+    margin: 2px 0px 4px 2px;
+    padding: 0px 4px 0px 4px;
     border: none;
     font-size: 16px;
     color: @light;
     opacity: 1;
 }
 
-/* clock */
+/* Clock */
 #clock {
-    margin: 4px;
-    padding: 2px 4px;
+    margin: 2px 0px 4px 2px;
+    padding: 0px 4px 0px 4px;
     border: none;   
     font-size: 16px;
     color: @light;
     opacity: 1;
 }
-/* Idle inhibitor */
-#idle_inhibitor {
+
+/* Backlight */
+#backlight {
+    margin: 2px 0px 4px 2px;
+    padding: 0px 4px 0px 4px;
     color: @light;
-    margin: 4px;
-    padding: 2px 4px;
     border: none;   
     opacity: 1;
- 
+}
+
+/* Idle inhibitor */
+#idle_inhibitor {
+    margin: 2px 0px 4px 2px;
+    padding: 0px 4px 0px 4px;
+    color: @light;
+    border: none;   
+    opacity: 1;
 }
 
 #idle_inhibitor.activated {
-color: @light;
-    margin: 4px;
-    padding: 2px 4px;
+    color: @light;
     opacity: 1;
 }
+/* End Idle inhibitor */
 
 /* Power profiles daemon */
 #power-profiles-daemon {
-    margin: 4px;
-    padding: 2px 4px;
+    margin: 2px 0px 4px 2px;
+    padding: 0px 4px 0px 4px;
     border: none;   
     font-size: 16px;
     color: @textlight;
@@ -146,8 +144,8 @@ color: @light;
 
 /* Battery */
 #battery {
-    margin: 4px;
-    padding: 2px 4px;
+    margin: 2px 0px 4px 2px;
+    padding: 0px 4px 0px 4px;
     border: none;   
     font-size: 16px;
     color: @light;
@@ -172,23 +170,24 @@ color: @light;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
+/* End Battery */
 
 /* Custom Notifications */
 #custom-notifications {
-    margin: 4px;
-    padding: 2px 4px;
-    border:none;   
-    font-size:16px;
+    margin: 2px 0px 4px 2px;
+    padding: 0px 4px 0px 4px;
+    border: none;   
+    font-size: 16px;
     color: @light;
     opacity: 1;
 }
 
 /* Custom Exit */
 #custom-exit {
-    margin: 4px;
-    padding: 2px 4px;
-    border:none;   
-    font-size:16px;
+    margin: 2px 0px 4px 2px;
+    padding: 0px 4px 0px 8px;
+    border: none;   
+    font-size: 16px;
     color: @light;
     opacity: 1;
 }
@@ -197,11 +196,13 @@ color: @light;
 tooltip {
     border-radius: 5px;
     background-color: @inactive;
-    opacity:1;
-    padding:20px;
-    margin:0px;
+    opacity: 1;
+    padding: 20px;
+    margin: 0px;
 }
 
 tooltip label {
     color: @dark;
+    font-weight: normal;
 }
+/* End Tooltips */

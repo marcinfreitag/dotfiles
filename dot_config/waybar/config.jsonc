@@ -4,13 +4,12 @@
 //
 
 {
-    //  "layer": "top", // Waybar at top layer
-    //  "position": "bottom", // Waybar position (top|bottom|left|right)
-    //  "height": 30, // Waybar height (to be removed for auto height)
-    //  "width": 1280, // Waybar width
+    "layer": "top", // Waybar at top layer
+    //"position": "bottom", // Waybar position (top|bottom|left|right)
+    //"height": 30, // Waybar height (to be removed for auto height)
+    //"width": 1280, // Waybar width
+    //"spacing": 0, // Gaps between module
 
-    "spacing": 0, // Gaps between module
-    
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces"
@@ -22,10 +21,11 @@
         "tray",
         "hyprland/language",
         "clock",
+        "backlight",
         "idle_inhibitor",
         "power-profiles-daemon",
         "battery",
-        "custom/notification",
+        "custom/notifications",
         "custom/exit"
     ],
 
@@ -42,7 +42,7 @@
             "*": 5
         }
     },
-    
+
     // Hyprland Window
     "hyprland/window": {
         "format": "{}",
@@ -52,16 +52,17 @@
         },
         "separate-outputs": true
     },
-  
+
     // Tray
     "tray": {
-        "icon-size": 22,
+        "icon-size": 20,
         "spacing": 4
     },
-  
+
     // Hyprland language
     "hyprland/language": {
-        "format": "{short}"
+        "format": "{short}",
+        "on-click": "hyprctl switchxkblayout all next"
     },
 
     // Clock
@@ -69,6 +70,14 @@
         "tooltip-format": "<tt><big>{calendar}</big></tt>",
         "format-alt": "{:%d/%m/%y}"
     },
+
+    // Backlight:
+    "backlight": {
+        "format": "<big>{icon}</big>  {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        "scroll-step": 1
+    },
+
     // Idle inhibitor
     "idle_inhibitor": {
         "format": "{icon}",
@@ -94,7 +103,7 @@
     // Battery
     "battery": {
         "states": {
-            // "good": 95,
+            //"good": 95,
             "warning": 30,
             "critical": 15
         },
@@ -102,32 +111,32 @@
         "format-charging": "  {capacity}%",
         "format-plugged": "  {capacity}%",
         //"format-alt": "{icon}  {time}",
-        //  "format-good": "", // An empty format will hide the module
-        //  "format-full": "",
+        //"format-good": "", // An empty format will hide the module
+        //"format-full": "",
         "format-icons": [" ", " ", " ", " ", " "]
-  },
-  
-    // SwayNC
-  "custom/notification": {
-    "tooltip-format": "Left: Notifications\nRight: Do not disturb",
-    "format": "{icon}",
-    "format-icons": {
-      "notification": "<span foreground='red'><sup></sup></span>",
-      "none": "",
-      "dnd-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-none": "",
-      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "inhibited-none": "",
-      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-      "dnd-inhibited-none": ""
     },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
-  },
+
+    // Custom notifications
+    "custom/notifications": {
+        "tooltip-format": "Left: Notifications\nRight: Do not disturb",
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1; swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
 
     // Custom exit
     "custom/exit": {
