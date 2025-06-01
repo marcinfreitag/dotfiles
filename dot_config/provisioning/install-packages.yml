@@ -84,7 +84,7 @@
           - totem-video-thumbnailer
           - zbar
           - teamviewer
-          - '@virtualization'
+          - '@Virtualization'
         state: present
 
     - name: Setup pipx
