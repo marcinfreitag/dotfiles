@@ -2,6 +2,76 @@
 
 gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Package installation"
 
-# dot_config/provisioning/install-packages.yml hash: {{ include "dot_config/provisioning/install-packages.yml" | sha256sum }}
-ansible-playbook "/home/$USER/.config/provisioning/install-packages.yml" --ask-become-pass
+# Enable rpm fusion repos
+echo :: Enable rpm fusion
+sudo dnf install \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+# Upgrade @Multimedia
+echo :: Upgrade @Multimedia
+sudo dnf group upgrade --with-optional Multimedia
+
+# Update system
+/home/$USER/.local/bin/update-fedora.sh
+
+# Install rpm packages
+echo :: Install packages
+sudo dnf install \
+  https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm \
+  https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm \
+  adobe-source-sans-pro-fonts \
+  age \
+  ansible \
+  clamav \
+  dconf-editor \
+  edk2-ovmf \
+  fastfetch \
+  flatseal \
+  file-roller \
+  gimp \
+  gnome-epub-thumbnailer \
+  gnome-tweaks \
+  gnome-shell-extension-caffeine \
+  gnome-shell-extension-dash-to-panel \
+  gnome-shell-extension-no-overview \
+  gnome-extensions-app \
+  gum \
+  htop \
+  inkscape \
+  langpacks-de \
+  langpacks-fr \
+  langpacks-nl \
+  langpacks-pl \
+  libheif-tools \
+  lynis \
+  mozilla-fira-sans-fonts \
+  mpv \
+  mupdf \
+  neovim \
+  pass \
+  pass-otp \
+  pdftk \
+  pipx \
+  swtpm \
+  syncthing \
+  tldr \
+  thunderbird \
+  totem-video-thumbnailer \
+  zbar \
+  teamviewer \
+  @virtualization
+
+# next to do: pipx
+
+# Install Alienfx
+if [ $(sudo dmidecode -s bios-vendor) == "Alienware" ]; then
+    echo ":: Install alienfx-gtk"
+    sudo dnf install \
+      cairo-devel \
+      python3-pyusb \
+      gobject-introspection \
+      gtk3-devel
+fi
+
 
