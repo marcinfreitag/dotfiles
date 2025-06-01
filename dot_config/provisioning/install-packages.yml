@@ -154,6 +154,5 @@
             - swaync
             - blueman
             - network-manager-applet
-            - pasystray
           state: present
           

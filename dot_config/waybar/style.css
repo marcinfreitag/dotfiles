@@ -5,12 +5,15 @@
 /* Colour declaration based on gnome */
 @define-color dark #000000;
 @define-color light #FFFFFF;
-@define-color highlight #FFFFFF;
+@define-color active #FFFFFF;
 @define-color inactive #7F7F7F;
+@define-color red #ff355e;
+@define-color green #77dd77;
+@define-color blue #77b5fe;
 
 * {
-    font-family: "Cantarell", "Font Awesome 6 Free";
-    font-weight: bold;
+    font-family: 'Cantarell', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+    font-weight: normal;
     border: none;
     border-radius: 0px;
     opacity: 1;
@@ -48,7 +51,7 @@ window#waybar {
 
 #workspaces button:hover {
     color: @dark;
-    background: @highlight;
+    background: @active;
     opacity: 1;
 }
 /* End Workspaces */
@@ -108,6 +111,34 @@ window#waybar.empty #window {
     opacity: 1;
 }
 
+/* Bluetooth */
+#bluetooth {
+    margin: 2px 0px 4px 2px;
+    padding: 0px 4px 0px 4px;
+    color: @light;
+    border: none;   
+    opacity: 1;
+}
+
+#bluetooth.disabled {
+    color: @inactive;
+}
+/* End Bluetooth */
+
+/* Pulseaudio */
+#pulseaudio {
+    margin: 2px 0px 4px 2px;
+    padding: 0px 4px 0px 4px;
+    color: @light;
+    border: none;   
+    opacity: 1;
+}
+
+#pulseaudio.muted {
+    color: @inactive;
+}
+/* End Pulseaudio */
+
 /* Backlight */
 #backlight {
     margin: 2px 0px 4px 2px;
@@ -121,7 +152,7 @@ window#waybar.empty #window {
 #idle_inhibitor {
     margin: 2px 0px 4px 2px;
     padding: 0px 4px 0px 4px;
-    color: @light;
+    color: @inactive;
     border: none;   
     opacity: 1;
 }
@@ -141,6 +172,15 @@ window#waybar.empty #window {
     color: @textlight;
     opacity: 1;
 }
+
+#power-profiles-daemon.performance {
+    color: @red;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @green;
+}
+/* End Power profiles daemon */
 
 /* Battery */
 #battery {
@@ -181,6 +221,11 @@ window#waybar.empty #window {
     color: @light;
     opacity: 1;
 }
+
+#custom-notifications.dnd-notification, #custom-notifications.dnd-none, #custom-notifications.dnd-inhibited-none {
+    color: @inactive;
+}
+/* End Custom Notifications */
 
 /* Custom Exit */
 #custom-exit {

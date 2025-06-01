@@ -12,15 +12,17 @@
 
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "hyprland/window"
     ],
     "modules-center": [
-        "hyprland/window"
+        "clock",
+        "hyprland/language"
     ],
     "modules-right": [
         "tray",
-        "hyprland/language",
-        "clock",
+        "bluetooth",
+        "pulseaudio",
         "backlight",
         "idle_inhibitor",
         "power-profiles-daemon",
@@ -70,12 +72,44 @@
         "tooltip-format": "<tt><big>{calendar}</big></tt>",
         "format-alt": "{:%d/%m/%y}"
     },
-
+  
+  // Bluetooth
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "",
+    "format-connected": "<span foreground='green'><sup></sup></span>",
+    "format-off": "<span foreground='red'><sup></sup></span>",
+    "interval": 30,
+    "on-click": "blueman-manager",
+    "format-no-controller": ""
+  },
+  
+  // Pulseaudio
+  "pulseaudio": {
+    "scroll-step": 5, // %, can be a float
+    "format": "{icon}  {volume}% {format_source}",
+    "format-bluetooth": "{icon} {volume}% {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
     // Backlight:
     "backlight": {
         "format": "<big>{icon}</big>  {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
-        "scroll-step": 1
+        "scroll-step": 10,
+        "tooltip": false
     },
 
     // Idle inhibitor
@@ -93,7 +127,7 @@
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
         "tooltip": true,
         "format-icons": {
-            "default": "",
+            "default": "",
             "performance": "",
             "balanced": "",
             "power-saver": ""
