@@ -5,3 +5,9 @@ gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "
 # dot_config/provisioning/install-packages.yml hash: {{ include "dot_config/provisioning/install-packages.yml" | sha256sum }}
 ansible-playbook "/home/$USER/.config/provisioning/install-packages.yml" --ask-become-pass
 
+echo :: Install generalsync
+pushd ~/Downloads
+wget https://fetch.generalsync.com/public/generalsync-pc-java/1.0.6.1/all-zip
+unzip all-zip -o ~/.local/bin/general-sync
+rm -f all-zip
+popd
