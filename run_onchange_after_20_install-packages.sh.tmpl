@@ -8,6 +8,6 @@ ansible-playbook "/home/$USER/.config/provisioning/install-packages.yml" --ask-b
 echo :: Install generalsync
 pushd ~/Downloads
 wget https://fetch.generalsync.com/public/generalsync-pc-java/1.0.6.1/all-zip
-unzip all-zip -o ~/.local/bin/general-sync
+unzip all-zip -o -d ~/.local/bin/general-sync
 rm -f all-zip
 popd
