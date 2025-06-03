@@ -91,21 +91,11 @@ window#waybar.empty #window {
 }
 /* End Tray */
 
-/* Language */
-#language {
+/* Common */
+#backlight, #clock, #cpu, #custom-exit, #disk, #language, #memory {
     margin: 2px 0px 4px 2px;
     padding: 0px 4px 0px 4px;
     border: none;
-    font-size: 16px;
-    color: @light;
-    opacity: 1;
-}
-
-/* Clock */
-#clock {
-    margin: 2px 0px 4px 2px;
-    padding: 0px 4px 0px 4px;
-    border: none;   
     font-size: 16px;
     color: @light;
     opacity: 1;
@@ -115,6 +105,7 @@ window#waybar.empty #window {
 #bluetooth {
     margin: 2px 0px 4px 2px;
     padding: 0px 4px 0px 4px;
+    font-size: 16px;
     color: @light;
     border: none;   
     opacity: 1;
@@ -139,14 +130,6 @@ window#waybar.empty #window {
 }
 /* End Pulseaudio */
 
-/* Backlight */
-#backlight {
-    margin: 2px 0px 4px 2px;
-    padding: 0px 4px 0px 4px;
-    color: @light;
-    border: none;   
-    opacity: 1;
-}
 
 /* Idle inhibitor */
 #idle_inhibitor {
@@ -226,16 +209,6 @@ window#waybar.empty #window {
     color: @inactive;
 }
 /* End Custom Notifications */
-
-/* Custom Exit */
-#custom-exit {
-    margin: 2px 0px 4px 2px;
-    padding: 0px 4px 0px 8px;
-    border: none;   
-    font-size: 16px;
-    color: @light;
-    opacity: 1;
-}
 
 /* Tooltips */
 tooltip {
