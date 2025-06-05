@@ -1,0 +1,7 @@
+#!/bin/bash
+
+gum style --border normal --margin "1" --padding "1 2" --border-foreground 212 "Workstation Configuration"
+
+# dot_config/provisioning/configure-workstation.yml hash: {{ include "dot_config/provisioning/configure-workstation.yml" | sha256sum }}
+ansible-playbook "/home/$USER/.config/provisioning/configure-workstation.yml" --ask-become-pass
+

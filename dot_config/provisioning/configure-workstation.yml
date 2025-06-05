@@ -1,0 +1,15 @@
+---
+- name: Configure Workstation
+  hosts: localhost
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Get current user
+      ansible.builtin.set_fact:
+        remote_regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
+
+    - name: Set timezone to Europe/Berlin and hw clock to UTC
+      timezone:
+        name: Europe/Berlin
+        hwclock: UTC
