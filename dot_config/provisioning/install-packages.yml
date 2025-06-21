@@ -155,5 +155,6 @@
             - swaync
             - blueman
             - network-manager-applet
+            - pavucontrol
           state: present
           

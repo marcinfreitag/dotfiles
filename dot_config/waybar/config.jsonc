@@ -4,13 +4,7 @@
 //
 
 {
-    //"layer": "top", // Waybar at top layer
-    //"position": "bottom", // Waybar position (top|bottom|left|right)
-    //"height": 30, // Waybar height (to be removed for auto height)
-    //"width": 1280, // Waybar width
-    //"spacing": 0, // Gaps between module
-
-    // Choose the order of the modules
+    // The order of the modules
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window"
@@ -18,14 +12,13 @@
     "modules-center": [
         "clock",
         "hyprland/language",
-        "cpu",
-        "memory",
-        "disk"
+        "group/hardware"
     ],
     "modules-right": [
         "tray",
         "bluetooth",
-        "pulseaudio",
+        "pulseaudio#output",
+        "pulseaudio#input",
         "backlight",
         "idle_inhibitor",
         "power-profiles-daemon",
@@ -36,8 +29,8 @@
 
     // Modules configuration
 
-    // Workspaces; max workspaces 5
-    "hyprland/workspaces": {
+    // max workspaces 5
+   "hyprland/workspaces": {
         "on-scroll-up": "hyprctl dispatch workspace r-1",
         "on-scroll-down": "[[ $(hyprctl activeworkspace -j | jq -r '.id') -lt 5 ]] && hyprctl dispatch workspace r+1 || hyprctl dispatch workspace 5",
         "active-only": false,
@@ -48,7 +41,6 @@
         }
     },
 
-    // Hyprland Window
     "hyprland/window": {
         "format": "{}",
         "max-length": 50,
@@ -58,83 +50,118 @@
         "separate-outputs": true
     },
 
-    // Tray
+    "group/hardware": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 0,
+            "transition-left-to-right": false,
+            "click-to-reveal": true
+        },
+        "modules": [
+            "custom/sysmonitor",
+            "cpu",
+            "temperature",
+            "memory",
+            "disk"
+        ]
+    },
+
+    "custom/sysmonitor": {
+        "format": "",
+        "tooltip-format": "System monitor"
+    },
+    
+    "temperature": {
+        "format": " {temperatureC}°C"
+    },
+
     "tray": {
         "icon-size": 20,
         "spacing": 4
     },
 
-    // Hyprland language
     "hyprland/language": {
         "format": "{short}",
         "on-click": "hyprctl switchxkblayout all next"
     },
     
-    // CPU
     "cpu": {
-	"interval": 10,
-	"format": " {usage}%",
-	"max-length": 10
+        "interval": 10,
+        "format": " {usage}%",
+        "max-length": 10
     },
     
     "memory": {
-	"interval": 30,
-	"format": " {}%",
-	"max-length": 10
+        "interval": 30,
+        "format": " {}%",
+        "max-length": 10
     },
+ 
     "disk": {
-	"interval": 30,
-	"format": " {percentage_used}%",
-	"{path}": "/"
+        "interval": 30,
+        "format": " {percentage_used}%",
+        "{path}": "/"
     },
     
-    // Clock
     "clock": {
         "format": "{:%d %b  %R}",
-        "tooltip-format": "<tt><big>{calendar}</big></tt>",
-        //"format-alt": "{:%d/%m/%y}"
+        "tooltip-format": "<tt><big>{calendar}</big></tt>"
     },
   
-  // Bluetooth
-  "bluetooth": {
-    "format": "",
-    "format-disabled": "",
-    "format-connected": "<span foreground='green'><sup></sup></span>",
-    "format-off": "<span foreground='red'><sup></sup></span>",
-    "interval": 30,
-    "on-click": "blueman-manager",
-    "format-no-controller": ""
-  },
-  
-  // Pulseaudio
-  "pulseaudio": {
-    "scroll-step": 5, // %, can be a float
-    "format": "{icon}  {volume}% {format_source}",
-    "format-bluetooth": "{icon} {volume}% {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "",
-    "format-source-muted": "",
-    "format-icons": {
-      "headphone": " ",
-      "hands-free": " ",
-      "headset": " ",
-      "phone": " ",
-      "portable": " ",
-      "car": " ",
-      "default": ["", "", ""]
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "",
+        "format-connected": "<span foreground='green'><sup></sup></span>",
+        "format-off": "<span foreground='red'><sup></sup></span>",
+        "interval": 30,
+        "on-click": "blueman-manager",
+        "format-no-controller": ""
     },
-    "on-click": "pavucontrol"
-  },
-    // Backlight:
+  
+    "pulseaudio#output": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon}  {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": "",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "pulseaudio#input": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
     "backlight": {
-        "format": "<big>{icon}</big>  {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        "format": "{icon}  {percent}%",
+        "format-icons": ["", ""],
         "scroll-step": 10,
         "tooltip": false
     },
 
-    // Idle inhibitor
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
@@ -143,7 +170,6 @@
         }
     },
 
-    // Power profiles daemon
     "power-profiles-daemon": {
         "format": "{icon}",
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
@@ -156,23 +182,17 @@
         }
     },
 
-    // Battery
     "battery": {
         "states": {
-            //"good": 95,
             "warning": 30,
             "critical": 15
         },
         "format": "{icon} {capacity}%",
         "format-charging": "  {capacity}%",
         "format-plugged": "  {capacity}%",
-        //"format-alt": "{icon}  {time}",
-        //"format-good": "", // An empty format will hide the module
-        //"format-full": "",
         "format-icons": [" ", " ", " ", " ", " "]
     },
 
-    // Custom notifications
     "custom/notifications": {
         "tooltip-format": "Left: Notifications\nRight: Do not disturb",
         "format": "{icon}",
@@ -194,7 +214,6 @@
         "escape": true
     },
 
-    // Custom exit
     "custom/exit": {
         "format": "",
         "on-click": "~/.local/bin/powermenu.sh",

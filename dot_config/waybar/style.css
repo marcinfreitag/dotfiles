@@ -12,7 +12,7 @@
 @define-color blue #77b5fe;
 
 * {
-    font-family: 'Cantarell', 'Font Awesome 6 Free', 'Font Awesome 6 Brands', monospace;
+    font-family: 'Noto Sans', 'Font Awesome 6 Free', 'Font Awesome 6 Brands';
     font-weight: normal;
     border: none;
     border-radius: 0px;
@@ -23,7 +23,6 @@ window#waybar {
     background-color: @dark;
 }
 
-/* Workspaces */
 #workspaces {
     margin: 2px 0px 4px 2px;
     border: none;
@@ -56,7 +55,6 @@ window#waybar {
 }
 /* End Workspaces */
 
-/* Window */
 #window {
     margin: 2px 0px 4px 2px;
     padding: 0px 4px 0px 4px;
@@ -67,14 +65,6 @@ window#waybar {
     opacity: 1;
 }
 
-/*
-window#waybar.empty #window {
-    background-color: transparent;
-}
- */
-/* End Window */
-
-/* Tray */
 #tray {
     margin: 2px 0px 4px 2px;
     padding: 0px 4px 0px 4px;
@@ -92,7 +82,7 @@ window#waybar.empty #window {
 /* End Tray */
 
 /* Common */
-#backlight, #clock, #cpu, #custom-exit, #disk, #language, #memory {
+#backlight, #clock, #cpu, #custom-exit, #disk, #language, #memory, #custom-sysmonitor, #temperature {
     margin: 2px 0px 4px 2px;
     padding: 0px 4px 0px 4px;
     border: none;
@@ -100,8 +90,8 @@ window#waybar.empty #window {
     color: @light;
     opacity: 1;
 }
+/* End common */
 
-/* Bluetooth */
 #bluetooth {
     margin: 2px 0px 4px 2px;
     padding: 0px 4px 0px 4px;
@@ -116,8 +106,7 @@ window#waybar.empty #window {
 }
 /* End Bluetooth */
 
-/* Pulseaudio */
-#pulseaudio {
+#pulseaudio.input, #pulseaudio.output {
     margin: 2px 0px 4px 2px;
     padding: 0px 4px 0px 4px;
     color: @light;
@@ -125,13 +114,11 @@ window#waybar.empty #window {
     opacity: 1;
 }
 
-#pulseaudio.muted {
+#pulseaudio.output.muted, #pulseaudio.input.source-muted {
     color: @inactive;
 }
 /* End Pulseaudio */
 
-
-/* Idle inhibitor */
 #idle_inhibitor {
     margin: 2px 0px 4px 2px;
     padding: 0px 4px 0px 4px;
@@ -146,7 +133,6 @@ window#waybar.empty #window {
 }
 /* End Idle inhibitor */
 
-/* Power profiles daemon */
 #power-profiles-daemon {
     margin: 2px 0px 4px 2px;
     padding: 0px 4px 0px 4px;
@@ -165,7 +151,6 @@ window#waybar.empty #window {
 }
 /* End Power profiles daemon */
 
-/* Battery */
 #battery {
     margin: 2px 0px 4px 2px;
     padding: 0px 4px 0px 4px;
@@ -195,7 +180,6 @@ window#waybar.empty #window {
 }
 /* End Battery */
 
-/* Custom Notifications */
 #custom-notifications {
     margin: 2px 0px 4px 2px;
     padding: 0px 4px 0px 4px;
@@ -210,7 +194,6 @@ window#waybar.empty #window {
 }
 /* End Custom Notifications */
 
-/* Tooltips */
 tooltip {
     border-radius: 5px;
     background-color: @inactive;
