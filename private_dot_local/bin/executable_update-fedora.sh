@@ -11,8 +11,10 @@ if ! gum confirm "Do you want to update fedora now?"; then
 fi
 
 echo -e "\n:: Update started."
-sudo gum spin --spinner dot --title "Updating Fedora packages..." -- dnf -y upgrade --refresh
-gum spin --spinner dot --title "Updating flatpak packages..." -- flatpak update --noninteractive
+echo "Updating Fedora packages..."
+sudo dnf -y upgrade --refresh
+echo "Updating flatpak packages..."
+flatpak update --noninteractive
 
 echo -e "\n:: Done. Press [ENTER] to close."
 read
