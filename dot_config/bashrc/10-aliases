@@ -31,4 +31,4 @@ alias downloadmp4='yt-dlp --yes-playlist -f 'bestvideo[ext=mp4]+bestaudio[ext=m4
 alias youtube='mpv --ytdl-format="bestvideo[height<=?1080][vcodec!=vp9]+bestaudio/best"'
 
 # System utilities
-alias update-grub='grub2-mkconfig -o /boot/grub2/grub.cfg'
+alias update-grub='sudo grub2-mkconfig -o /boot/grub2/grub.cfg'
