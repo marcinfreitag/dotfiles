@@ -195,15 +195,15 @@ window#waybar {
 /* End Custom Notifications */
 
 tooltip {
-    border-radius: 5px;
-    background-color: @inactive;
-    opacity: 1;
+    border-radius: 10px;
+    background-color: @dark;
+    opacity: 0.85;
     padding: 20px;
     margin: 0px;
 }
 
 tooltip label {
-    color: @dark;
+    color: @light;
     font-weight: normal;
 }
 /* End Tooltips */
