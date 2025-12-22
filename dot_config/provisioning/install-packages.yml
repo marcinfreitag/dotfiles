@@ -128,20 +128,22 @@
 
       - name: Install hyprland copr repo
         community.general.copr:
-          name: solopasha/hyprland
+          name: acidburnmonkey/hyprland
           host: copr.fedorainfracloud.org
           state: enabled
 
       - name: Hyprland. Install rpms
         ansible.builtin.dnf:
           name:
+            - brightnessctl
             - hypridle
             - hyprland
             - hyprlock
             - hyprpaper
-            - hyprshot
             - kitty
             - waybar
+            - hyprland-guiutils
+            - wofi
             - xdg-desktop-portal-hyprland
             - swaync
             - blueman
