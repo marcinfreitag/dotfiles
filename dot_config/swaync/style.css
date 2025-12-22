@@ -1,10 +1,9 @@
 /* Colors */
 
-@import '../../.cache/wal/colors-waybar.css';
 @define-color background #242424;
 @define-color groupbackground #363636;
 @define-color buttoncolor #4a4a4a;
-@define-color bordercolor @color11;
+@define-color bordercolor #3584e4; /*adwaita blue*/
 @define-color fontcolor #FFFFFF;
 
 * {

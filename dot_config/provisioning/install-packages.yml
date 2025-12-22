@@ -78,7 +78,6 @@
           - pass
           - pass-otp
           - pdftk
-          - pipx
           - swtpm
           - syncthing
           - tldr
@@ -88,15 +87,6 @@
           - teamviewer
           - '@virtualization'
         state: present
-
-    - name: Setup pipx
-      ansible.builtin.shell: pipx ensurepath --global
-
-    - name: Install pywal
-      community.general.pipx:
-        name: pywal
-        state: present
-        global: true
 
     - name: Install flatpak apps
       community.general.flatpak:
@@ -159,14 +149,3 @@
             - pavucontrol
           state: present
 
-    - name: Install batsignal copr repo
-      community.general.copr:
-        name: ilyaas/batsignal
-        host: copr.fedorainfracloud.org
-        state: enabled
-
-    - name: Install batsignal
-      ansible.builtin.dnf:
-        name: batsignal
-        state: present
-          

@@ -22,12 +22,5 @@ fi
 # This is not required, if executed at least once
 gsettings set org.gnome.desktop.background picture-uri "file://$current_wallpaper"
 
-wal -c > /dev/null
-wal -q -i $current_wallpaper >/dev/null 2>&1
-source "$HOME/.cache/wal/colors.sh"
-
-# Display new terminal colour scheme
-echo -e "\n:: $(wal --preview)"
-
 echo -e "\n:: Done. Press [ENTER] to close."
 read
