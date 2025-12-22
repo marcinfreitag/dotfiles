@@ -134,7 +134,7 @@
     - name: Install hyprland
       block:
 
-      - name: Install copr repo
+      - name: Install hyprland copr repo
         community.general.copr:
           name: solopasha/hyprland
           host: copr.fedorainfracloud.org
@@ -156,4 +156,15 @@
             - network-manager-applet
             - pavucontrol
           state: present
+
+    - name: Install batsignal copr repo
+      community.general.copr:
+        name: ilyaas/batsignal
+        host: copr.fedorainfracloud.org
+        state: enabled
+
+    - name: Install batsignal
+      ansible.builtin.dnf:
+        name: batsignal
+        state: present
           
