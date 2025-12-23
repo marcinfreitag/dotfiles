@@ -92,36 +92,8 @@
       community.general.flatpak:
         name:
           - org.nickvision.tagger
+          - com.github.tchx84.Flatseal
         state: present
-
-    - name: Alienfx-gtk. Install dependencies, pull project from github, install binaries
-      when: ansible_facts['bios_vendor'] == "Alienware"
-      block:
-
-      - name: Alienfx. Install rpms
-        ansible.builtin.dnf:
-          name:
-            - cairo-devel
-            - python3-pyusb
-            - gobject-introspection
-            - gtk3-devel
-          state: present
-
-      - name: Alienfx. Install python modules
-        community.general.pipx:
-          name: future
-          state: present
-          global: true
-
-      - name: Alienfx. Clone git repo
-        ansible.builtin.git:
-          repo: https://github.com/trackmastersteve/alienfx.git
-          dest: /src/alienfx
-
-      - name: Alienfx. Install binaries
-        ansible.builtin.shell:
-          cmd: sudo python3 setup.py install && sudo python3 setup.py install_data
-          chdir: /src/alienfx
 
     - name: Install hyprland
       block:
@@ -136,6 +108,7 @@
         ansible.builtin.dnf:
           name:
             - brightnessctl
+            - dunst
             - hypridle
             - hyprland
             - hyprlock
@@ -145,7 +118,6 @@
             - hyprland-guiutils
             - wofi
             - xdg-desktop-portal-hyprland
-            - swaync
             - blueman
             - network-manager-applet
             - pavucontrol
