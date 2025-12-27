@@ -1,3 +1,3 @@
 # 30-autostart
 
-
+eval "$(zoxide init bash)"

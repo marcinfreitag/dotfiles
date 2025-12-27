@@ -84,6 +84,7 @@
           - thunderbird
           - totem-video-thumbnailer
           - zbar
+          - zoxide
           - teamviewer
           - '@virtualization'
         state: present
