@@ -1,9 +1,10 @@
 # .bashrc
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
-fi
+# no longer necessary, sinced copied to .config/bashrc/
+# if [ -f /etc/bashrc ]; then
+#     . /etc/bashrc
+# fi
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
