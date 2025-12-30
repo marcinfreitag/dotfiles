@@ -1,52 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+newBrightness="$(($(brightnessctl get -P) + $1))"
+notificationDuration=2000
 
-iconDir=/usr/share/icons/Adwaita/symbolic/status
-notification_timeout=1000
-step=5
+brightnessctl set "$newBrightness%"
+newBrightness=$(brightnessctl get -P)
 
-getBrightness() {
-    brightnessctl -m | cut -d, -f4 | sed 's/%//'
-}
-
-displayOSD() {
-    notify-send -e -h string:x-canonical-private-synchronous:osd -h int:value:$current -u low -i "$iconDir/display-brightness-symbolic.svg" "Brightness" "$current%"
-}
-
-changeBrightness() {
-    local currentBrightness=$(getBrightness)
-
-    if [[ "$1" == "+${step}%" ]]; then
-        newBrightness=$((currentBrightness + step))
-    elif [[ "$1" == "${step}%-" ]]; then
-        newBrightness=$((currentBrightness - step))
-    fi
-
-    if [[ newBrightness < 0 ]]; then
-        newBrigtness=0
-    elif [[ newBrightness > 100 ]]; then
-        newBrigtness=100
-    fi
-
-    current=newBrightness
-
-    brightnessctl set "${newBrightness}%"
-    displayOSD
-}
-
-case "$1" in
-    "--inc")
-        changeBrightness "+${step}%"
-    ;;
-    "--dec")
-        changeBrightness "${step}%-"
-    ;;
-    "--get")
-        getBrightness
-        ;;
-    *)
-        getBrightness
-        ;;
-esac
-
-
-
+notify-send -e -h string:x-canonical-private-synchronous:osd -t $notificationDuration -u low -i ~/.icons/display-brightness-symbolic.svg "Brightness" "$newBrightness%"
