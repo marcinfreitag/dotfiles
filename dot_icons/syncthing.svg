@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 117.3 117.3" enable-background="new 0 0 117.3 117.3" xml:space="preserve">
 	<circle fill="#ffffff" cx="58.7" cy="58.7" r="58.7"/>
-	<g color="#285577">
+	<g color="#474747">
 		<circle fill="none" stroke="currentColor" stroke-width="6" stroke-miterlimit="10" cx="58.7" cy="58.5" r="43.7"/>
 		<path fill="none" stroke="currentColor" stroke-width="6" d="M 16.6,69.1 L 67.5,64.4 L 86.5,91.8 M 67.5,64.4 L 97.6,39.4"/>
 		<circle fill="currentColor" cx="97.6" cy="39.4" r="9"/>

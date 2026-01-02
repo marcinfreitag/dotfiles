@@ -11,8 +11,7 @@
     ],
     "modules-center": [
         "clock",
-        "hyprland/language",
-        "group/hardware"
+        "hyprland/language"
     ],
     "modules-right": [
         "tray",
@@ -50,59 +49,6 @@
         "tooltip": false
     },
 
-    "group/hardware": {
-        "orientation": "horizontal",
-        "drawer": {
-            "transition-duration": 0,
-            "transition-left-to-right": false,
-            "click-to-reveal": true
-        },
-        "modules": [
-            "custom/sysmonitor",
-            "cpu",
-            "temperature",
-            "memory",
-            "disk"
-        ]
-    },
-
-    "custom/sysmonitor": {
-        "format": "",
-        "tooltip-format": "System monitor"
-    },
-    
-    "temperature": {
-        "format": " {temperatureC}°C"
-    },
-
-    "tray": {
-        "icon-size": 20,
-        "spacing": 4
-    },
-
-    "hyprland/language": {
-        "format": "{short}",
-        "on-click": "hyprctl switchxkblayout all next"
-    },
-    
-    "cpu": {
-        "interval": 10,
-        "format": " {usage}%",
-        "max-length": 10
-    },
-    
-    "memory": {
-        "interval": 30,
-        "format": " {}%",
-        "max-length": 10
-    },
- 
-    "disk": {
-        "interval": 30,
-        "format": " {percentage_used}%",
-        "{path}": "/"
-    },
-    
     "clock": {
         "format": "{:%d %b  %R}",
         "tooltip-format": "<tt><big>{calendar}</big></tt>"
@@ -156,9 +102,9 @@
     },
 
     "backlight": {
-        "format": "{icon}  {percent}%",
-        "format-icons": ["", ""],
-        "scroll-step": 10,
+        "format": "☀  {percent}%",
+        //"format-icons": ["", ""],
+        "scroll-step": 5,
         "tooltip": false
     },
 

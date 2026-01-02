@@ -17,6 +17,8 @@
     border: none;
     border-radius: 0px;
     opacity: 1;
+    margin:0;
+    padding:0;
 }
 
 window#waybar {
@@ -82,7 +84,7 @@ window#waybar {
 /* End Tray */
 
 /* Common */
-#backlight, #clock, #cpu, #custom-exit, #disk, #language, #memory, #custom-sysmonitor, #temperature {
+#backlight, #clock, #custom-exit, #language {
     margin: 2px 0px 4px 2px;
     padding: 0px 4px 0px 4px;
     border: none;
@@ -181,15 +183,15 @@ window#waybar {
 /* End Battery */
 
 tooltip {
-    border-radius: 10px;
-    background-color: @dark;
-    opacity: 0.85;
-    padding: 20px;
-    margin: 0px;
+	background: #222222;
+	color: @light;
+	border: 2px solid #aaaaaa;
+	border-radius: 10px;
 }
 
 tooltip label {
-    color: @light;
-    font-weight: normal;
+	color: @light;
+	font-size: 14px;
+	padding: 8px 12px;
 }
 /* End Tooltips */
