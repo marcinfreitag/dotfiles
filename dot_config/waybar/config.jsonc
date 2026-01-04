@@ -68,8 +68,8 @@
         "scroll-step": 5, // %, can be a float
         "format": "{icon}  {volume}%",
         "format-bluetooth": "{icon} {volume}%",
-        "format-bluetooth-muted": " {icon}",
-        "format-muted": "",
+        "format-bluetooth-muted": "  ",
+        "format-muted": "",
         "format-source": "",
         "format-source-muted": "",
         "format-icons": {
@@ -79,7 +79,7 @@
             "phone": " ",
             "portable": " ",
             "car": " ",
-            "default": ["", "", ""]
+            "default": ""
         },
         "on-click": "pavucontrol"
     },
@@ -96,14 +96,13 @@
             "phone": " ",
             "portable": " ",
             "car": " ",
-            "default": ["", "", ""]
+            "default": ""
         },
         "on-click": "pavucontrol"
     },
 
     "backlight": {
-        "format": "☀  {percent}%",
-        //"format-icons": ["", ""],
+        "format": "  {percent}%",
         "scroll-step": 5,
         "tooltip": false
     },
@@ -121,22 +120,22 @@
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
         "tooltip": true,
         "format-icons": {
-            "default": "",
-            "performance": "",
-            "balanced": "",
-            "power-saver": ""
+            "default": "󰊚",
+            "performance": "󰡴",
+            "balanced": "󰊚",
+            "power-saver": "󰡳"
         }
     },
 
     "battery": {
         "states": {
-            "warning": 30,
-            "critical": 15
+            "warning": 20,
+            "critical": 10
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": "  {capacity}%",
-        "format-plugged": "  {capacity}%",
-        "format-icons": [" ", " ", " ", " ", " "]
+        "format": "{icon}  {capacity}%",
+        "format-charging": "{icon}  {capacity}%",
+        "format-plugged": "{icon}  {capacity}%",
+        "format-icons": ["󰂎", "󱊡", "󱊢", "󱊣"]
     },
 
     "custom/exit": {
