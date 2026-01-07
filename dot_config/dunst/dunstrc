@@ -25,7 +25,7 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 300
+    width = (130, 300)
 
     # The height of a single notification, excluding the frame.
     # dynamic height from 0 to 300
@@ -36,7 +36,7 @@
     #       and the given value is treated as the maximum height
 
     # Position the notification in the top right corner
-    origin = top-right
+    origin = top-center
 
     # Offset from the origin
     # NOTE: Dunst from version 1.11 and older use this alternative notation
@@ -144,7 +144,8 @@
 
     ### Text ###
 
-    font = Noto Sans, 14
+    #font = Noto Sans, 14
+    font = UbuntuSans NF, 14
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
