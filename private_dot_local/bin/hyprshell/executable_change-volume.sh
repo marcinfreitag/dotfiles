@@ -12,4 +12,4 @@ fi
 
 wpctl set-volume @DEFAULT_AUDIO_SINK@ $newVolume -l 1.5
 
-notify-send -e -h string:x-canonical-private-synchronous:osd -t $notificationDuration -u low "  $(echo "scale=0; $newVolume * 100 /1" | bc)%"
+notify-send -e -i " " -h string:x-canonical-private-synchronous:osd -t $notificationDuration -u low "  $(echo "scale=0; $newVolume * 100 /1" | bc)%"

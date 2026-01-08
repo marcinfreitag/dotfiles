@@ -6,4 +6,4 @@ newBrightness="$(($(brightnessctl get -P) + $1))"
 brightnessctl set "$newBrightness%"
 newBrightness=$(brightnessctl get -P)
 
-notify-send -e -h string:x-canonical-private-synchronous:osd -t $notificationDuration -u low "󰖨  $newBrightness%"
+notify-send -e -i " " -h string:x-canonical-private-synchronous:osd -t $notificationDuration -u low "󰖨  $newBrightness%"

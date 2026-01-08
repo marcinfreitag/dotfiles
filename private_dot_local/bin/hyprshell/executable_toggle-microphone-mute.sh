@@ -13,4 +13,4 @@ fi
 
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
-notify-send -e -h string:x-canonical-private-synchronous:osd -t $notificationDuration -u low "$newVolumeState  $newVolumeToggleState"
+notify-send -e -i " " -h string:x-canonical-private-synchronous:osd -t $notificationDuration -u low "$newVolumeState  $newVolumeToggleState"

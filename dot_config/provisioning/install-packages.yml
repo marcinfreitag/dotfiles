@@ -130,5 +130,6 @@
             - pavucontrol
             - NetworkManager-tui
             - bluetuith
+            - papirus-icon-theme
           state: present
 
