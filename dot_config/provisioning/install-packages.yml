@@ -96,8 +96,14 @@
           - com.github.tchx84.Flatseal
         state: present
 
-    - name: Install hyprland
+    - name: Install hyprland environment
       block:
+      
+      - name: Install bluetuith copr repo
+        community.general.copr:
+          name: lxdes/bluetuith
+          host: copr.fedorainfracloud.org
+          state: enabled
 
       - name: Install hyprland copr repo
         community.general.copr:
@@ -122,5 +128,7 @@
             - blueman
             - network-manager-applet
             - pavucontrol
+            - NetworkManager-tui
+            - bluetuith
           state: present
 

@@ -4,143 +4,167 @@
 //
 
 {
-    // The order of the modules
-    "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window"
-    ],
-    "modules-center": [
-        "clock",
-        "hyprland/language"
-    ],
-    "modules-right": [
-        "tray",
-        "bluetooth",
-        "pulseaudio#output",
-        "pulseaudio#input",
-        "backlight",
-        "idle_inhibitor",
-        "power-profiles-daemon",
-        "battery",
-        "custom/exit"
-    ],
+  // The order of the modules
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock",
+    "hyprland/language"
+  ],
+  "modules-right": [
+    "tray",
+    "network",
+    "bluetooth",
+    "pulseaudio#output",
+    "pulseaudio#input",
+    "backlight",
+    "idle_inhibitor",
+    "power-profiles-daemon",
+    "battery",
+    "custom/exit"
+  ],
 
-    // Modules configuration
+  // Modules configuration
 
-    // max workspaces 5
-   "hyprland/workspaces": {
-        "on-scroll-up": "hyprctl dispatch workspace r-1",
-        "on-scroll-down": "[[ $(hyprctl activeworkspace -j | jq -r '.id') -lt 5 ]] && hyprctl dispatch workspace r+1 || hyprctl dispatch workspace 5",
-        "active-only": false,
-        "all-outputs": true,
-        "format": "{}",
-        "persistent-workspaces": {
-            "*": 5
-        }
-    },
-
-    "hyprland/window": {
-        "format": "{}",
-        "max-length": 50,
-        "rewrite": {
-            "(.*) — Mozilla Firefox": "$1"
-        },
-        "separate-outputs": true,
-        "tooltip": false
-    },
-
-    "clock": {
-        "format": "{:%d %b  %R}",
-        "tooltip-format": "<tt><big>{calendar}</big></tt>"
-    },
-  
-    "bluetooth": {
-        "format": "",
-        "format-disabled": "",
-        "format-connected": "<span foreground='green'><sup></sup></span>",
-        "format-off": "<span foreground='red'><sup></sup></span>",
-        "interval": 30,
-        "on-click": "blueman-manager",
-        "format-no-controller": ""
-    },
-  
-    "pulseaudio#output": {
-        "scroll-step": 5, // %, can be a float
-        "format": "{icon}  {volume}%",
-        "format-bluetooth": "{icon} {volume}%",
-        "format-bluetooth-muted": "  ",
-        "format-muted": "",
-        "format-source": "",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": " ",
-            "hands-free": " ",
-            "headset": " ",
-            "phone": " ",
-            "portable": " ",
-            "car": " ",
-            "default": ""
-        },
-        "on-click": "pavucontrol"
-    },
-
-    "pulseaudio#input": {
-        "scroll-step": 5, // %, can be a float
-        "format": "{format_source}",
-        "format-source": "",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": " ",
-            "hands-free": " ",
-            "headset": " ",
-            "phone": " ",
-            "portable": " ",
-            "car": " ",
-            "default": ""
-        },
-        "on-click": "pavucontrol"
-    },
-
-    "backlight": {
-        "format": "  {percent}%",
-        "scroll-step": 5,
-        "tooltip": false
-    },
-
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-        "tooltip": true,
-        "format-icons": {
-            "default": "󰊚",
-            "performance": "󰡴",
-            "balanced": "󰊚",
-            "power-saver": "󰡳"
-        }
-    },
-
-    "battery": {
-        "states": {
-            "warning": 20,
-            "critical": 10
-        },
-        "format": "{icon}  {capacity}%",
-        "format-charging": "{icon}  {capacity}%",
-        "format-plugged": "{icon}  {capacity}%",
-        "format-icons": ["󰂎", "󱊡", "󱊢", "󱊣"]
-    },
-
-    "custom/exit": {
-        "format": "",
-        "on-click": "~/.local/bin/powermenu.sh",
-        "tooltip" : false
+ "hyprland/workspaces": {
+    "on-scroll-up": "hyprctl dispatch workspace r-1",
+    "on-scroll-down": "[[ $(hyprctl activeworkspace -j | jq -r '.id') -lt 5 ]] && hyprctl dispatch workspace r+1 || hyprctl dispatch workspace 5",
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{}",
+    "persistent-workspaces": {
+      "*": 5
     }
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "$1",
+      "(.*) - Mozilla Thunderbird": "$1",
+      "(.*) - Text Editor": "$1",
+    },
+    "separate-outputs": true,
+    "tooltip": false
+  },
+
+  "clock": {
+    "format": "{:%d %b  %R}",
+    "tooltip-format": "<tt><big>{calendar}</big></tt>"
+  },
+
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "󰈀  {ifname}",
+    "format-disabled": "󰀝",
+    "format-disconnected": "󰌙",
+    "tooltip-format": "󰈀 {ifname} via {gwaddri}",
+    "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format-ethernet": "󰈀 {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+    "tooltip-format-disconnected": "Disconnected",
+    "tooltip-format-disabled": "Network disabled",
+    "max-length": 30,
+    "on-click": "kitty nmtui"
+  },
+
+  "tray": {
+    "icon-size": 20,
+    "spacing": 4
+  },
+  
+  "bluetooth": {
+    "format": "󰂯",
+    "format-disabled": "󰂯",
+    "format-connected": "󰂱",
+    "format-off": "󰂲",
+    "interval": 30,
+    "on-click": "kitty bluetuith",
+    "format-no-controller": "",
+    "tooltip-format-connected": "Connected devices: {num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t Battery: {device_battery_percentage}%",
+  },
+  
+  "pulseaudio#output": {
+    "scroll-step": 5, // %, can be a float
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-bluetooth-muted": "  ",
+    "format-muted": "",
+    "format-source": "",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": ["", ""]
+    },
+    "on-click": "pavucontrol",
+    "tooltip": true,
+    "tooltip-format": "Volume: {volume}%"
+  },
+
+  "pulseaudio#input": {
+    "scroll-step": 5, // %, can be a float
+    "format": "{format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "on-click": "pavucontrol",
+    "tooltip": false
+  },
+
+  "backlight": {
+    "format": "{icon}",
+    "format-icons": "󰖨",
+    "scroll-step": 5,
+    "tooltip": true,
+    "tooltip-format": "Brightness: {percent}%"
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "󰊚",
+      "performance": "󰡴",
+      "balanced": "󰊚",
+      "power-saver": "󰡳"
+    }
+  },
+
+  "battery": {
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon}",
+    "format-charging": "󰂄",
+    "format-plugged": "",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip": true,
+    "tooltip-format": "Battery: {capacity}%"
+  },
+
+  "custom/exit": {
+    "format": "",
+    "on-click": "~/.local/bin/powermenu.sh",
+    "tooltip": true,
+    "tooltip-format": "Power menu"
+  }
 }
