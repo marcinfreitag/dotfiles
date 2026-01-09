@@ -52,8 +52,13 @@
   },
 
   "clock": {
-    "format": "{:%d %b  %R}",
+    "format": "󰸗  {:%d %b  %R}",
     "tooltip-format": "<tt><big>{calendar}</big></tt>"
+  },
+
+  "hyprland/language": {
+    "format": "  {short}",
+    "on-click": "hyprctl switchxkblayout all next"
   },
 
   "network": {
@@ -109,7 +114,7 @@
     },
     "on-click": "pavucontrol",
     "tooltip": true,
-    "tooltip-format": "Volume: {volume}%"
+    "tooltip-format": "󰖀\t{volume}%"
   },
 
   "pulseaudio#input": {
@@ -126,7 +131,7 @@
     "format-icons": "󰖨",
     "scroll-step": 5,
     "tooltip": true,
-    "tooltip-format": "Brightness: {percent}%"
+    "tooltip-format": "󰖨\t{percent}%"
   },
 
   "idle_inhibitor": {
@@ -134,12 +139,13 @@
     "format-icons": {
       "activated": "",
       "deactivated": ""
-    }
+    },
+    "tooltip": false
   },
 
   "power-profiles-daemon": {
     "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip-format": "󰊚\t{profile}",
     "tooltip": true,
     "format-icons": {
       "default": "󰊚",
@@ -159,7 +165,7 @@
     "format-plugged": "",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
     "tooltip": true,
-    "tooltip-format": "Battery:\t {capacity}%\nTime:\t {time}"
+    "tooltip-format": "󰁹\t {capacity}%\n󱧥\t {time}"
   },
 
   "custom/exit": {
