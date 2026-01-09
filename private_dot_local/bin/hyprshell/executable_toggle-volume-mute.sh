@@ -6,10 +6,10 @@ volumeDump=$(wpctl get-volume @DEFAULT_SINK@)
 
 if [ -z "$(echo "$volumeDump" | cut -d' ' -f3)" ]; then
   newVolumeToggleState="Muted"
-  newVolumeState=""
+  newVolumeState="󰝟 "
 else
   newVolumeToggleState="Unmuted"
-  newVolumeState=" "
+  newVolumeState="󰕾 "
 fi
 
 wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
