@@ -11,7 +11,7 @@ if ! gum confirm "Do you want to debloat fedora now?"; then
 fi
 
 echo -e "\n:: Debloating started."
-sudo gum spin --spinner dot --title "Removing Fedora packages..." -- dnf -y remove abrt-desktop baobab fedora-bookmarks geary gnome-boxes gnome-calendar gnome-contacts gnome-logs gnome-maps gnome-software gnome-tour gnome-weather mediawriter ibus-anthy ibus-hangul ibus-libpinyin ibus-libzhuyin totem
+sudo gum spin --spinner dot --title "Removing Fedora packages..." -- dnf -y remove abrt-desktop baobab evince fedora-bookmarks geary gnome-boxes gnome-calendar gnome-contacts gnome-logs gnome-maps gnome-software gnome-tour gnome-weather mediawriter ibus-anthy ibus-hangul ibus-libpinyin ibus-libzhuyin totem
 
 echo -e "\n:: Debloating done. Press [ENTER] to close."
 read
