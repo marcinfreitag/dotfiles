@@ -94,6 +94,7 @@
         name:
           - org.nickvision.tagger
           - com.github.tchx84.Flatseal
+          - app.grayjay.Grayjay
         state: present
 
     - name: Install hyprland environment
