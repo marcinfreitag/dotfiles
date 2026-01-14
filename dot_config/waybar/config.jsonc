@@ -52,12 +52,12 @@
   },
 
   "clock": {
-    "format": "󰸗  {:%d %b  %R}",
+    "format": "{:%d %b  %R}",
     "tooltip-format": "<tt><big>{calendar}</big></tt>"
   },
 
   "hyprland/language": {
-    "format": "  {short}",
+    "format": "{short}",
     "on-click": "hyprctl switchxkblayout all next"
   },
 
