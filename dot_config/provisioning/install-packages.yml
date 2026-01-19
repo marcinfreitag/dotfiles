@@ -93,7 +93,6 @@
           - org.nickvision.tagger
           - com.github.tchx84.Flatseal
           - app.grayjay.Grayjay
-          - org.mozilla.firefox
         state: present
 
     - name: Install hyprland environment

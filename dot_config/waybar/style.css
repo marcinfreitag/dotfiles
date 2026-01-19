@@ -7,6 +7,7 @@
 @define-color light #FFFFFF;
 @define-color active #FFFFFF;
 @define-color inactive #7F7F7F;
+@define-color highlight #474747;
 @define-color red #ff355e;
 @define-color green #77dd77;
 @define-color blue #77b5fe;
@@ -17,7 +18,6 @@
   border-radius: 0px;
   opacity: 1;
   margin:0;
-  padding:0;
 }
 
 window#waybar {
@@ -32,7 +32,7 @@ window#waybar {
 
 #workspaces button {
   min-width: 20px;
-  padding: 0px 6px;
+  padding: 1px 5px;
   margin: 0px 2px 0px 0px;
   opacity: 1;
   color: @light;
@@ -44,16 +44,12 @@ window#waybar {
 }
 
 #workspaces button.active {
-  color: @dark;
-  background: @light;
+  color: @light;
+  background: @dark;
   opacity: 1;
 }
 
-#workspaces button:hover {
-  color: @dark;
-  background: @active;
-  opacity: 1;
-}
+
 /* End Workspaces */
 
 /*#window {
@@ -84,7 +80,7 @@ window#waybar {
 /* Common */
 #backlight, #bluetooth, #clock, #custom-exit, #language, #network, #pulseaudio.input, #pulseaudio.output, #idle_inhibitor.activated, #power-profiles-daemon, #battery, #battery.charging, #battery.plugged, #tray, #window {
   margin: 2px 0px 4px 2px;
-  padding: 0px 4px 0px 4px;
+  padding: 1px 5px 1px 5px;
   min-width:20px;
   border: none;
   font-size: 16px;
@@ -95,7 +91,7 @@ window#waybar {
 /* Common disabled */
 #bluetooth.disabled, #network.disabled, #network.disconnected, #pulseaudio.output.muted, #pulseaudio.input.source-muted, #idle_inhibitor {
   margin: 2px 0px 4px 2px;
-  padding: 0px 4px 0px 4px;
+  padding: 1px 5px 1px 5px;
   min-width:20px;
   border: none;
   font-size: 16px;
@@ -115,19 +111,30 @@ window#waybar {
 }
 /* End Power profiles daemon */
 
-@keyframes blink {
+/*@keyframes blink {
   to {
     color: @light;
   }
-}
+}*/
 
 #battery.critical:not(.charging) {
-  color: #f53c3c;
-  animation-name: blink;
+  color: @red;
+/*  animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation-direction: alternate;*/
+}
+
+#workspaces button:hover, #window:hover, #clock:hover, #language:hover, #network:hover, #bluetooth:hover, #pulseaudio.input:hover, #pulseaudio.output:hover, #backlight:hover, #idle_inhibitor:hover, #power-profiles-daemon:hover, #battery:hover, #custom-exit:hover {
+  color: @light;
+  background: @highlight;
+  box-shadow: none;
+  text-shadow: none;
+  background: @highlight;
+  transition: none;
+  border-radius: 10px;
+  opacity: 1;
 }
 
 tooltip {

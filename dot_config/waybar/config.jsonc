@@ -33,7 +33,10 @@
     "on-scroll-down": "[[ $(hyprctl activeworkspace -j | jq -r '.id') -lt 5 ]] && hyprctl dispatch workspace r+1 || hyprctl dispatch workspace 5",
     "active-only": false,
     "all-outputs": true,
-    "format": "{}",
+    "format": "{icon}",
+    "format-icons": {
+      "active": "󰄮"
+    },
     "persistent-workspaces": {
       "*": 5
     }
