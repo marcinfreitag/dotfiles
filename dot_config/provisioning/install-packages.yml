@@ -106,7 +106,7 @@
 
       - name: Install hyprland copr repo
         community.general.copr:
-          name: acidburnmonkey/hyprland
+          name: sdegler/hyprland
           host: copr.fedorainfracloud.org
           state: enabled
 
@@ -119,6 +119,7 @@
             - hyprland
             - hyprlock
             - hyprpaper
+            - hyprshot
             - kitty
             - waybar
             - hyprland-guiutils
