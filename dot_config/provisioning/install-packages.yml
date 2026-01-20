@@ -120,6 +120,7 @@
             - hyprlock
             - hyprpaper
             - hyprshot
+            - hyprpolkitagent
             - kitty
             - waybar
             - hyprland-guiutils
