@@ -15,8 +15,6 @@ current_wallpaper=$HOME/.local/share/wallpapers/current.jpg
 cp -f $(gum file "$HOME/.local/share/wallpapers/") "$current_wallpaper"
 
 if [ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]; then
-    hyprctl hyprpaper unload all
-    hyprctl hyprpaper preload $current_wallpaper
     hyprctl hyprpaper wallpaper ", $current_wallpaper"
 fi
 # This is not required, if executed at least once
