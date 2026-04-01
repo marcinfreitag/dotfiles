@@ -98,6 +98,12 @@
     - name: Install hyprland environment
       block:
       
+      - name: Install nerd fonts
+        community.general.copr:
+          name: aquacash5/nerd-fonts
+          host: copr.fedorainfracloud.org
+          state: enabled
+
       - name: Install bluetuith copr repo
         community.general.copr:
           name: lxdes/bluetuith
@@ -132,5 +138,7 @@
             - NetworkManager-tui
             - bluetuith
             - papirus-icon-theme
+            - adwaita-mono-nerd-fonts
+            - noto-nerd-fonts
           state: present
 

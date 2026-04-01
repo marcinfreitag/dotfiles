@@ -17,8 +17,7 @@
     "tray",
     "network",
     "bluetooth",
-    "pulseaudio#output",
-    "pulseaudio#input",
+    "pulseaudio",
     "backlight",
     "idle_inhibitor",
     "power-profiles-daemon",
@@ -98,7 +97,7 @@
     "tooltip-format-enumerate-connected-battery": "{device_alias} 󰁹\t{device_battery_percentage}%"
   },
   
-  "pulseaudio#output": {
+  "pulseaudio": {
     "scroll-step": 5, // %, can be a float
     "format": "{icon}",
     "format-bluetooth": "{icon}",
@@ -118,15 +117,6 @@
     "on-click": "pavucontrol",
     "tooltip": true,
     "tooltip-format": "󰖀\t{volume}%"
-  },
-
-  "pulseaudio#input": {
-    "scroll-step": 5, // %, can be a float
-    "format": "{format_source}",
-    "format-source": "",
-    "format-source-muted": "",
-    "on-click": "pavucontrol",
-    "tooltip": false
   },
 
   "backlight": {

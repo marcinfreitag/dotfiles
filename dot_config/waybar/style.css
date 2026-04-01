@@ -13,7 +13,7 @@
 @define-color blue #77b5fe;
 
 * {
-  font-family: 'Noto Sans', 'Font Awesome 6 Free', 'Font Awesome 6 Brands';
+  font-family: 'NotoSans Nerd Font', 'Font Awesome 6 Free', 'Font Awesome 6 Brands';
   border: none;
   border-radius: 0px;
   opacity: 1;
@@ -78,7 +78,7 @@ window#waybar {
 }
 
 /* Common */
-#backlight, #bluetooth, #clock, #custom-exit, #language, #network, #pulseaudio.input, #pulseaudio.output, #idle_inhibitor.activated, #power-profiles-daemon, #battery, #battery.charging, #battery.plugged, #tray, #window {
+#backlight, #bluetooth, #clock, #custom-exit, #language, #network, #pulseaudio, #idle_inhibitor.activated, #power-profiles-daemon, #battery, #battery.charging, #battery.plugged, #tray, #window {
   margin: 2px 0px 4px 2px;
   padding: 1px 5px 1px 5px;
   min-width:20px;
@@ -89,7 +89,7 @@ window#waybar {
 }
 
 /* Common disabled */
-#bluetooth.disabled, #network.disabled, #network.disconnected, #pulseaudio.output.muted, #pulseaudio.input.source-muted, #idle_inhibitor {
+#bluetooth.disabled, #network.disabled, #network.disconnected, #pulseaudio.muted, #idle_inhibitor {
   margin: 2px 0px 4px 2px;
   padding: 1px 5px 1px 5px;
   min-width:20px;
@@ -126,7 +126,7 @@ window#waybar {
   animation-direction: alternate;*/
 }
 
-#workspaces button:hover, #window:hover, #clock:hover, #language:hover, #network:hover, #bluetooth:hover, #pulseaudio.input:hover, #pulseaudio.output:hover, #backlight:hover, #idle_inhibitor:hover, #power-profiles-daemon:hover, #battery:hover, #custom-exit:hover {
+#workspaces button:hover, #window:hover, #clock:hover, #language:hover, #network:hover, #bluetooth:hover, #pulseaudio:hover, #backlight:hover, #idle_inhibitor:hover, #power-profiles-daemon:hover, #battery:hover, #custom-exit:hover {
   color: @light;
   background: @highlight;
   box-shadow: none;
