@@ -46,7 +46,6 @@
     - name: Install packages from rpm repos
       ansible.builtin.dnf:
         name:
-          - adobe-source-sans-pro-fonts
           - age
           - ansible
           - clamav
@@ -70,13 +69,13 @@
           - langpacks-pl
           - libheif-tools
           - lynis
-          - mozilla-fira-sans-fonts
           - mpv
           - mupdf
           - neovim
           - pass
           - pass-otp
           - pdftk
+          - rsms-inter-fonts
           - swtpm
           - syncthing
           - tldr
@@ -98,7 +97,7 @@
     - name: Install hyprland environment
       block:
       
-      - name: Install nerd fonts
+      - name: Install nerd fonts copr repo
         community.general.copr:
           name: aquacash5/nerd-fonts
           host: copr.fedorainfracloud.org
@@ -132,12 +131,9 @@
             - hyprland-guiutils
             - wofi
             - xdg-desktop-portal-hyprland
-            - blueman
-            - network-manager-applet
             - pavucontrol
             - NetworkManager-tui
             - bluetuith
-            - papirus-icon-theme
             - adwaita-mono-nerd-fonts
             - noto-nerd-fonts
           state: present
