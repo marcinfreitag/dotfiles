@@ -118,6 +118,7 @@
       - name: Hyprland. Install rpms
         ansible.builtin.dnf:
           name:
+            - brightnessctl
             - dunst
             - hypridle
             - hyprland
@@ -126,7 +127,6 @@
             - hyprshot
             - hyprpolkitagent
             - kitty
-            - light
             - waybar
             - hyprland-guiutils
             - wofi
