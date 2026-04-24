@@ -163,7 +163,7 @@
 
   "custom/exit": {
     "format": "",
-    "on-click": "~/.local/bin/powermenu.sh",
+    "on-click": "~/.local/bin/shell/powermenu.sh",
     "tooltip": true,
     "tooltip-format": "Power menu"
   }

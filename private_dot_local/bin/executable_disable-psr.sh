@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # disable-psr.sh - fixes input lag on ThinkPad X280 by disabling PSR
 #

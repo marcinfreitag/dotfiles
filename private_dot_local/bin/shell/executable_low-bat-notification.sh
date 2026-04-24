@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # stolen from Stephan Raabe's My Linux for Work dotfiles 
 # replaced magic numbers with WARN and CRIT
 

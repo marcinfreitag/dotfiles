@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # installs nvidia drivers
 # https://www.reddit.com/r/Fedora/comments/18bj1kt/fedora_nvidia_secure_boot/?rdt=40579

@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # Backup gpg keys for all identities
 # Creates gpg-backup.tar.gz in the curent directory
 # Source: https://access.redhat.com/solutions/2115511

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ "$(pidof syncthing)" == "" ]; then
     notify-send -t 2000 -i ~/.icons/syncthing.svg "SyncThing" "Daemon not running"

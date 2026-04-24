@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ "$(pidof syncthing)" == "" ]; then
     syncthing --no-browser &

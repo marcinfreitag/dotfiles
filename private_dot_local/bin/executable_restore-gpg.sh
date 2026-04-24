@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # Restore gpg keys for all identities from gpg-backup.tar.gz
 # run the script in the same directory as the archive
 # Source: https://access.redhat.com/solutions/2115511
